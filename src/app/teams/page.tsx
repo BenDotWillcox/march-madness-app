@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ImportTeamsExcel } from "@/components/import/import-teams-csv";
 import { TeamsTable } from "@/components/teams/teams-table";
 import { Button } from "@/components/ui/button";
 import { teamRepo } from "@/lib/data/team-repo";
@@ -24,7 +23,6 @@ export default async function TeamsPage() {
         ) : null}
       </div>
 
-      <ImportTeamsExcel />
       <TeamsTable teams={teams} />
     </div>
   );
