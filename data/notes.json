@@ -1,0 +1,882 @@
+[
+  {
+    "id": "note-houston-1",
+    "teamId": "houston",
+    "author": "Ben",
+    "content": "Elite point-of-attack defense. Can stagnate late clock if guards are pressured.",
+    "createdAt": "2026-03-01T12:00:00.000Z",
+    "updatedAt": "2026-03-01T12:00:00.000Z"
+  },
+  {
+    "id": "8492daba-93a8-4127-bc91-d572cbdce6af",
+    "teamId": "duke",
+    "author": "Jake",
+    "content": "Boozer is Paolo",
+    "createdAt": "2026-03-05T00:56:40.120Z",
+    "updatedAt": "2026-03-05T00:56:40.120Z"
+  },
+  {
+    "id": "887d91e6-f3c1-4e8b-8e55-fc07ae464f33",
+    "teamId": "duke",
+    "author": "Jake",
+    "content": "Boozer is a double double threat and gets to the block. Great team defense. Can Clamp you up",
+    "createdAt": "2026-03-05T00:57:27.557Z",
+    "updatedAt": "2026-03-05T13:21:36.835Z"
+  },
+  {
+    "id": "4c11226d-62ec-4938-9ba4-5853b8cccbf0",
+    "teamId": "arizona",
+    "author": "Jake",
+    "content": "Koa Peat is a nasty freshman\n\nJaden Bradley is a great guard as well",
+    "createdAt": "2026-03-05T01:45:59.339Z",
+    "updatedAt": "2026-03-05T01:45:59.339Z"
+  },
+  {
+    "id": "02330d12-7327-4db7-8f97-b7095f386f65",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "Brayden Berries is a three-level scorer who can get buckets anywhere.",
+    "createdAt": "2026-03-05T01:50:41.493Z",
+    "updatedAt": "2026-03-05T01:50:41.493Z"
+  },
+  {
+    "id": "7ab4d465-19ef-47d6-a19b-897fcd839d9a",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "3-point shooting is an issue.",
+    "createdAt": "2026-03-05T01:51:03.985Z",
+    "updatedAt": "2026-03-05T01:51:03.985Z"
+  },
+  {
+    "id": "e52148a2-cf84-4eba-8149-a18219ca6b85",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "Koa Peat struggled vs Kansas size and toughness.",
+    "createdAt": "2026-03-05T01:51:16.660Z",
+    "updatedAt": "2026-03-05T01:51:16.660Z"
+  },
+  {
+    "id": "993b6d93-e475-4146-b8b9-e71ad811e972",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "Motiejus Krivas is a 7’2” big who has touch around the rim and is rim protector!",
+    "createdAt": "2026-03-05T01:51:28.558Z",
+    "updatedAt": "2026-03-05T01:51:28.558Z"
+  },
+  {
+    "id": "db62d412-aa9d-4326-9bbe-1a27516cdc54",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "Plays an 8+ man rotation. Might have 7 Pros on this team",
+    "createdAt": "2026-03-05T01:52:01.783Z",
+    "updatedAt": "2026-03-05T01:52:01.783Z"
+  },
+  {
+    "id": "09983961-a688-4c6c-8f21-8bfe6e370f79",
+    "teamId": "arizona",
+    "author": "Ben",
+    "content": "Physical, tough team. Defense and rebounding.",
+    "createdAt": "2026-03-05T01:52:33.899Z",
+    "updatedAt": "2026-03-05T01:52:33.899Z"
+  },
+  {
+    "id": "429e12c2-9517-4f73-acc3-5f07fe46fd40",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "This is an elite defensive team that’s switches and traps a ton! Any team that relies only one playmaker will struggle greatly! This leads to open threes, but they usually get a good contest. ",
+    "createdAt": "2026-03-05T01:55:03.507Z",
+    "updatedAt": "2026-03-05T01:55:03.507Z"
+  },
+  {
+    "id": "e7ca1a0d-238b-4dc4-939c-fb0d601f763f",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "Tamin Lipsey is a tough do it all point guard who you feel confident taking any shot.",
+    "createdAt": "2026-03-05T01:55:12.900Z",
+    "updatedAt": "2026-03-05T01:55:12.900Z"
+  },
+  {
+    "id": "c1c33769-e8aa-428f-95b9-e8ff0e0337ae",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "Milan Momcilovic is leading the nation in 3pt shooting percentage needs to take more of them. He hits shots but sometimes struggles to create his own shot.",
+    "createdAt": "2026-03-05T01:55:20.162Z",
+    "updatedAt": "2026-03-05T01:55:20.162Z"
+  },
+  {
+    "id": "80c5c02e-b8a3-4f1e-80b9-b900d39c55dd",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "Joshua Jefferson is a really good player on the wing who can hit threes drive to the basket and play make.",
+    "createdAt": "2026-03-05T01:55:51.681Z",
+    "updatedAt": "2026-03-05T01:55:51.681Z"
+  },
+  {
+    "id": "72f697a5-cb5f-4251-a0ce-bb0d1ad2fe18",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "This team has a real chance at a national championship! But I’m concerned but this team's inability to make free throws. Worst in the big 12! ",
+    "createdAt": "2026-03-05T01:55:59.155Z",
+    "updatedAt": "2026-03-05T01:55:59.155Z"
+  },
+  {
+    "id": "35c1ad4d-b2eb-481b-b32c-205c38526e1e",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "They lack a true down low scorer but have some capable guys who can dunk and have some okay touch around the rim. Buchanan is that for them.",
+    "createdAt": "2026-03-05T01:56:30.619Z",
+    "updatedAt": "2026-03-05T01:56:30.619Z"
+  },
+  {
+    "id": "260e263c-b140-4275-9b9e-76253e4d7364",
+    "teamId": "iowa-st",
+    "author": "Jake",
+    "content": "Heise and Bateman bring some nice shooting off the bench. Only 8 guys deep!",
+    "createdAt": "2026-03-05T01:56:39.759Z",
+    "updatedAt": "2026-03-05T01:56:39.759Z"
+  },
+  {
+    "id": "ef8ec83d-4727-4780-967a-c410682f78bf",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "AJ is an elite player who can get to the basket and play make!",
+    "createdAt": "2026-03-06T02:05:26.726Z",
+    "updatedAt": "2026-03-06T02:05:26.726Z"
+  },
+  {
+    "id": "7909affc-c06f-4d3a-a560-26efed9439aa",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "There defense isn’t great but improved.",
+    "createdAt": "2026-03-06T02:05:41.917Z",
+    "updatedAt": "2026-03-06T02:05:41.917Z"
+  },
+  {
+    "id": "e4b2ddc8-22d4-4bff-a1e1-2f56bd770da9",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Not as good of a three-point shooting team",
+    "createdAt": "2026-03-06T02:05:59.661Z",
+    "updatedAt": "2026-03-06T02:05:59.661Z"
+  },
+  {
+    "id": "d5180289-79f9-4a58-8ac8-8c4425b5c66d",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Rob Wright can’t shoot and struggles to hit free throws but can finish around the rim and get to the bucket.",
+    "createdAt": "2026-03-06T02:06:03.936Z",
+    "updatedAt": "2026-03-06T02:06:03.936Z"
+  },
+  {
+    "id": "2d2bfb2b-c87f-4ca3-a010-9f07f23e4ce6",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Keira is a good rim protector and dunker but doesn’t add much only 6’8!",
+    "createdAt": "2026-03-06T02:06:13.843Z",
+    "updatedAt": "2026-03-06T02:06:13.843Z"
+  },
+  {
+    "id": "b073279d-d703-45b4-98e4-e368000c7338",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Saunders was okay but had an illness will be better rest of season! UPDATE: RIP RICHIE SAUNDERS TORN ACL",
+    "createdAt": "2026-03-06T02:06:33.414Z",
+    "updatedAt": "2026-03-06T03:24:50.166Z"
+  },
+  {
+    "id": "53e4bf6a-6ef8-4b9e-9540-62f2db8cbd4a",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "This team is good and still wants to play fast will be a good over team and good team overall for sure tournament maybe a 2/3 weekend team!",
+    "createdAt": "2026-03-06T02:06:43.148Z",
+    "updatedAt": "2026-03-06T02:06:43.148Z"
+  },
+  {
+    "id": "b3bb7a60-eaa7-4e50-b607-63746bfef1f9",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Wright and Saunders are very good! They have improved a lot on defense from last year to this year.",
+    "createdAt": "2026-03-06T02:06:58.493Z",
+    "updatedAt": "2026-03-06T02:06:58.493Z"
+  },
+  {
+    "id": "cd6c32d2-035f-4e90-b0d0-3186cbe94410",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "Keita is a really good big man but he’s there only big.",
+    "createdAt": "2026-03-06T02:07:07.152Z",
+    "updatedAt": "2026-03-06T02:07:07.152Z"
+  },
+  {
+    "id": "6a6cc88e-4cc4-4853-b4c1-6dc64f343573",
+    "teamId": "byu",
+    "author": "Jake",
+    "content": "They offensive rebound well and defensively they rebound and get out!",
+    "createdAt": "2026-03-06T02:07:16.702Z",
+    "updatedAt": "2026-03-06T02:07:16.702Z"
+  },
+  {
+    "id": "01f73422-7db6-4376-b9aa-89a2ebfbfaa7",
+    "teamId": "byu",
+    "author": "Ben",
+    "content": "Update these guys are spiraling without Sanders but the main thing is they don't play a lick of defense anymore. Like not even pretending to care on that end. Don't know if there is an intensity flip to be switched but if not R1 exit.",
+    "createdAt": "2026-03-06T02:08:20.626Z",
+    "updatedAt": "2026-03-06T02:08:20.626Z"
+  },
+  {
+    "id": "f489304c-d949-4fdd-b181-6fef543e0513",
+    "teamId": "houston",
+    "author": "Jake",
+    "content": "Oh my god they are so good! Flemings, Sharpe and Uzan are insane abs tuggler is so good! Elite defense and i think there best offensive team yet! Final four/natty",
+    "createdAt": "2026-03-06T03:25:18.561Z",
+    "updatedAt": "2026-03-06T03:25:18.561Z"
+  },
+  {
+    "id": "1a4210e8-784b-4430-a47f-eb7033ac32ea",
+    "teamId": "houston",
+    "author": "Ben",
+    "content": "They are so good defensively. Need multiple creators who can pass out of double teams to even begin to think about scoring. Tuggler’s length inside is the cherry on top that makes them elite.",
+    "createdAt": "2026-03-06T03:25:38.313Z",
+    "updatedAt": "2026-03-06T03:25:57.588Z"
+  },
+  {
+    "id": "b58d150b-7ead-47c3-9cc7-2d8e95e62a18",
+    "teamId": "houston",
+    "author": "Ben",
+    "content": "Flemings adds the piece they need offensively to be unstoppable",
+    "createdAt": "2026-03-06T03:26:07.431Z",
+    "updatedAt": "2026-03-06T03:26:07.431Z"
+  },
+  {
+    "id": "4ca87781-c349-4af9-b5b5-45dd1906b67b",
+    "teamId": "houston",
+    "author": "Ben",
+    "content": "Only concerns for them are depth and shot making.",
+    "createdAt": "2026-03-06T03:26:19.280Z",
+    "updatedAt": "2026-03-06T03:26:19.280Z"
+  },
+  {
+    "id": "a6672af4-d1c9-4337-8cf4-40eaaf49d5e5",
+    "teamId": "houston",
+    "author": "Jake",
+    "content": "This is the best Houston offense yet and still and elite defense there closing lineup of sharpe uzan Flemings tuggler and cinac is so good.",
+    "createdAt": "2026-03-06T03:26:34.523Z",
+    "updatedAt": "2026-03-06T03:26:34.523Z"
+  },
+  {
+    "id": "dc20b29a-833e-4aa6-9725-3c5cb0ab12f9",
+    "teamId": "houston",
+    "author": "Jake",
+    "content": "In love with Cinac ability to rebound and stretch the floor will need to get something out of their bench!",
+    "createdAt": "2026-03-06T03:26:55.174Z",
+    "updatedAt": "2026-03-06T03:26:55.174Z"
+  },
+  {
+    "id": "3040cefb-4f1b-4ab2-b875-594f27af60c7",
+    "teamId": "houston",
+    "author": "Jake",
+    "content": "They did blow a 10-point lead and missed some key free throws. Also struggled to box out for a few key rebounds! Also disappointed me a little on offense in the second half but Kingston Fleming is unbelievable!",
+    "createdAt": "2026-03-06T03:27:22.888Z",
+    "updatedAt": "2026-03-06T03:27:22.888Z"
+  },
+  {
+    "id": "aeeacbaa-cc70-461c-8854-3a33088ea192",
+    "teamId": "houston",
+    "author": "Jake",
+    "content": "Could win a National championship would say they are a favorite feel like a lock for at least 2nd weekend",
+    "createdAt": "2026-03-06T03:27:29.454Z",
+    "updatedAt": "2026-03-06T03:27:29.454Z"
+  },
+  {
+    "id": "61030c8e-6490-4dcf-9acb-73ac837fe94f",
+    "teamId": "texas-tech",
+    "author": "Jake",
+    "content": "They will go as far as JT Toppin takes them! Elite rim protector and very good around the basket and a lob threat!",
+    "createdAt": "2026-03-06T03:28:13.278Z",
+    "updatedAt": "2026-03-06T03:28:13.278Z"
+  },
+  {
+    "id": "b827f2bf-4c0e-4e7b-8b44-4affd291d149",
+    "teamId": "texas-tech",
+    "author": "Jake",
+    "content": "Christian Anderson is legit, can absolutely hoop and stroke the three and is a good distributor.",
+    "createdAt": "2026-03-06T03:28:33.875Z",
+    "updatedAt": "2026-03-06T03:28:33.875Z"
+  },
+  {
+    "id": "8c54a867-4b84-4812-b6cb-4840f0921166",
+    "teamId": "texas-tech",
+    "author": "Jake",
+    "content": "Need a third guy I really like Watts but he’s very young but a nice big body wing.",
+    "createdAt": "2026-03-06T03:29:07.466Z",
+    "updatedAt": "2026-03-06T03:29:07.466Z"
+  },
+  {
+    "id": "cab3f7cd-b785-4c26-9917-d695cde479d3",
+    "teamId": "texas-tech",
+    "author": "Jake",
+    "content": " Floor is sweet 16, final 4 ceiling!",
+    "createdAt": "2026-03-06T03:29:27.610Z",
+    "updatedAt": "2026-03-06T03:29:27.610Z"
+  },
+  {
+    "id": "d1d5c504-3d46-4454-b68e-a8e9abed493e",
+    "teamId": "texas-tech",
+    "author": "Jake",
+    "content": "JT Toppin torn ACL out for the year!",
+    "createdAt": "2026-03-06T03:29:38.137Z",
+    "updatedAt": "2026-03-06T03:29:38.137Z"
+  },
+  {
+    "id": "18948ad9-dc72-4d67-bd47-f503704b444a",
+    "teamId": "texas-tech",
+    "author": "Ben",
+    "content": "Have looked surprisingly good since Toppin injury. Anderson is still super elite and they are actually getting more out of the role guys without Toppin. Massively Caps their ceiling however.",
+    "createdAt": "2026-03-06T03:30:55.724Z",
+    "updatedAt": "2026-03-06T03:30:55.724Z"
+  },
+  {
+    "id": "133004f9-a50c-4c52-81aa-4779647879a7",
+    "teamId": "kansas",
+    "author": "Ben",
+    "content": "Darryn Peterson is as dynamic a guard as I’ve ever seen in College basketball. If he is all clear to play 30+ mins in March he will immediately pose an insanely difficult challenge to any matchup. You will not be able to beat them without multiple perimeter defenders. Multiple because you also need to guard Melvin Council Jr. who is a lengthy bucket getter.",
+    "createdAt": "2026-03-06T03:58:35.558Z",
+    "updatedAt": "2026-03-06T03:58:35.558Z"
+  },
+  {
+    "id": "f20c83fa-5244-449a-8e99-84a648515ac0",
+    "teamId": "kansas",
+    "author": "Ben",
+    "content": "Bidunga is super imposing inside so you need strength and length to take him away.",
+    "createdAt": "2026-03-06T03:59:01.705Z",
+    "updatedAt": "2026-03-06T03:59:01.705Z"
+  },
+  {
+    "id": "63b0fe98-abf2-4090-a221-504564d92e83",
+    "teamId": "kansas",
+    "author": "Ben",
+    "content": "Tre White reminds me of a college Josh Hart with his rebounding ability at his size and ability to knock down 3s ",
+    "createdAt": "2026-03-06T03:59:14.410Z",
+    "updatedAt": "2026-03-06T03:59:14.410Z"
+  },
+  {
+    "id": "a76104e7-3037-496f-811f-cf339f782dab",
+    "teamId": "kansas",
+    "author": "Ben",
+    "content": "If they can cut the rotation with Peterson full go, they will be very hard to beat. That being said if you can defend their guards and make Peterson guard on the other end, they are beatable ",
+    "createdAt": "2026-03-06T03:59:34.310Z",
+    "updatedAt": "2026-03-06T03:59:34.310Z"
+  },
+  {
+    "id": "2f895554-8efe-44e3-984e-d8a745303a4b",
+    "teamId": "kansas",
+    "author": "Jake",
+    "content": "Bidunga is so much better has some nice touch, rebounds everything and is an insane shot blocker! Paired with a nice stretch 4 in Bryson Tiller who also plays big and strong.",
+    "createdAt": "2026-03-06T03:59:57.459Z",
+    "updatedAt": "2026-03-06T03:59:57.459Z"
+  },
+  {
+    "id": "633cf3cd-059f-487f-b955-e64fbd84f24e",
+    "teamId": "kansas",
+    "author": "Jake",
+    "content": "Melvin Council can get buckets just a pure scorer! McDowell is a nice shooter who will bring a spark off the bench most nights!",
+    "createdAt": "2026-03-06T04:00:11.008Z",
+    "updatedAt": "2026-03-06T04:00:11.008Z"
+  },
+  {
+    "id": "6da2e434-c773-4350-bad9-7e8337f4845f",
+    "teamId": "kansas",
+    "author": "Jake",
+    "content": "This team can defend and block shots and are tough as nails will be a tough out in the tournament have final 4 and natty aspirations.",
+    "createdAt": "2026-03-06T04:01:06.230Z",
+    "updatedAt": "2026-03-06T04:01:06.230Z"
+  },
+  {
+    "id": "2812ea0e-1528-488d-b114-2fad7f2799c5",
+    "teamId": "kansas",
+    "author": "Jake",
+    "content": "Struggle to shoot the ball don’t have multiple shooters and the way they play defense they give up some open looks. May struggle vs high volume three point teams",
+    "createdAt": "2026-03-06T04:01:18.191Z",
+    "updatedAt": "2026-03-06T04:01:18.191Z"
+  },
+  {
+    "id": "b1d827ab-3a82-4a30-a477-94c2a945e0a6",
+    "teamId": "arkansas",
+    "author": "Jake",
+    "content": "Will be a guard led team. Wagner Acuff and Thomas are a strong three headed monster at guard.",
+    "createdAt": "2026-03-06T04:01:53.844Z",
+    "updatedAt": "2026-03-06T04:01:53.844Z"
+  },
+  {
+    "id": "15a0b2b3-5199-4f3a-b1db-72f040c39018",
+    "teamId": "arkansas",
+    "author": "Jake",
+    "content": "The two freshmen can really shoot it. Acuff is a good play maker.",
+    "createdAt": "2026-03-06T04:02:05.034Z",
+    "updatedAt": "2026-03-06T04:02:05.034Z"
+  },
+  {
+    "id": "b97eab7c-89c5-4f0e-abc1-5387130a17d9",
+    "teamId": "arkansas",
+    "author": "Jake",
+    "content": "Not a great three-point shooting team outside of the guards and Knox who will need to be a big xfactor for them!",
+    "createdAt": "2026-03-06T04:02:14.626Z",
+    "updatedAt": "2026-03-06T04:02:14.626Z"
+  },
+  {
+    "id": "137bc6aa-2685-455d-b70e-f9de905567f5",
+    "teamId": "arkansas",
+    "author": "Jake",
+    "content": "Their bigs leave a lot to be desired and wasn’t impressed by any of them.",
+    "createdAt": "2026-03-06T04:02:29.178Z",
+    "updatedAt": "2026-03-06T04:02:39.167Z"
+  },
+  {
+    "id": "ab61ebed-e399-4d09-b642-94e8f2a8531f",
+    "teamId": "alabama",
+    "author": "Jake",
+    "content": "This team is an elite offense where every player can hit a three!",
+    "createdAt": "2026-03-06T04:03:06.700Z",
+    "updatedAt": "2026-03-06T04:03:06.700Z"
+  },
+  {
+    "id": "d3ba5735-8663-42b0-a566-dd1f7c8be61c",
+    "teamId": "alabama",
+    "author": "Jake",
+    "content": "They lack a dominate big man that can defend the rim and rebound.",
+    "createdAt": "2026-03-06T04:03:18.303Z",
+    "updatedAt": "2026-03-06T04:03:18.303Z"
+  },
+  {
+    "id": "fbac280b-39ca-4f82-b4a7-3b0f71b5b8ae",
+    "teamId": "alabama",
+    "author": "Jake",
+    "content": "This team will have trouble playing teams with height.",
+    "createdAt": "2026-03-06T04:03:29.103Z",
+    "updatedAt": "2026-03-06T04:03:29.103Z"
+  },
+  {
+    "id": "aea3cc6f-b1ff-4f84-ad28-a543dfd7bec5",
+    "teamId": "alabama",
+    "author": "Jake",
+    "content": "Philon and Holloway are elite.",
+    "createdAt": "2026-03-06T04:03:36.236Z",
+    "updatedAt": "2026-03-06T04:03:36.236Z"
+  },
+  {
+    "id": "1e9d9b24-88c8-41d9-818a-30538405cc40",
+    "teamId": "alabama",
+    "author": "Jake",
+    "content": "This team doesn’t defend or rebound and can be had from all three phases.",
+    "createdAt": "2026-03-06T04:03:46.700Z",
+    "updatedAt": "2026-03-06T04:03:46.700Z"
+  },
+  {
+    "id": "6e75a3c3-ed0e-404d-a71f-49d9874f77f4",
+    "teamId": "vanderbilt",
+    "author": "Ben",
+    "content": "Elite downhill guards in Tanner and Miles + a lethal shooter in Tyler Nickel. Every possession is for one of these 3 either high screen and role for a guard or pin down actions for Nickel.",
+    "createdAt": "2026-03-06T04:04:23.123Z",
+    "updatedAt": "2026-03-06T04:04:23.123Z"
+  },
+  {
+    "id": "af161736-d655-489a-b8cc-2f80e93d3e13",
+    "teamId": "vanderbilt",
+    "author": "Ben",
+    "content": "Play small regularly to get spacing and Nickel matched up with 4’s",
+    "createdAt": "2026-03-06T04:04:29.804Z",
+    "updatedAt": "2026-03-06T04:04:29.804Z"
+  },
+  {
+    "id": "7255708a-dc79-4d6e-9269-768f4fa3fbe9",
+    "teamId": "vanderbilt",
+    "author": "Ben",
+    "content": "Okereke is their one big and plays a screen and dunk role similar to Coop",
+    "createdAt": "2026-03-06T04:04:38.224Z",
+    "updatedAt": "2026-03-06T04:04:38.224Z"
+  },
+  {
+    "id": "c3267aa9-7561-4e96-b8e6-205e865031c7",
+    "teamId": "vanderbilt",
+    "author": "Ben",
+    "content": "They switch everything on defense except Okereke who ices with a weak side touch on the roller. They don’t double the post.",
+    "createdAt": "2026-03-06T04:04:55.638Z",
+    "updatedAt": "2026-03-06T04:04:55.638Z"
+  },
+  {
+    "id": "ffd6c3b3-3a33-4ee4-b344-ab7e64f9cbdf",
+    "teamId": "vanderbilt",
+    "author": "Ben",
+    "content": "They will excel against teams with weak on ball defending guards and struggle against teams with size and rebounding ",
+    "createdAt": "2026-03-06T04:05:05.409Z",
+    "updatedAt": "2026-03-06T04:05:05.409Z"
+  },
+  {
+    "id": "a8da584b-25c0-4dc2-aefe-a840b4c0d665",
+    "teamId": "florida",
+    "author": "Ben",
+    "content": "Top 3 front court in the country (with Michigan and Arizona) Haugh is high level athlete with quickness for his size, can shoot and get to the rim. Condon has great footwork, length and vision. Chinyelu is their unsung hero one of the best defenders in the country and a relentless rebounder. Can score 1on1 if he gets touches deep enough.",
+    "createdAt": "2026-03-06T04:05:31.140Z",
+    "updatedAt": "2026-03-06T04:05:31.140Z"
+  },
+  {
+    "id": "a014908d-06fe-4db3-8c26-001e998875ed",
+    "teamId": "florida",
+    "author": "Ben",
+    "content": "Their guards have confidence with space but have struggled to shoot the 3 this year.",
+    "createdAt": "2026-03-06T04:05:51.215Z",
+    "updatedAt": "2026-03-06T04:05:51.215Z"
+  },
+  {
+    "id": "33d6931f-49c4-4a7f-8f04-d872ecab1492",
+    "teamId": "florida",
+    "author": "Ben",
+    "content": "They will excel against small teams by dominating the paint. Things get scary against bigger teams that can make 2pt offense harder to come by. Teams who can keep the rebounding margin close will take away a big part of their game.",
+    "createdAt": "2026-03-06T04:06:12.083Z",
+    "updatedAt": "2026-03-06T04:06:12.083Z"
+  },
+  {
+    "id": "9f8da8e6-ba59-4747-ad6d-66777aa5d075",
+    "teamId": "michigan",
+    "author": "Jake",
+    "content": "Mara is huge for them! Protects the rim is a constant threat down low. When he is out, they can be rebounded on and allow a lot more paint touches and scoring.",
+    "createdAt": "2026-03-06T04:15:50.910Z",
+    "updatedAt": "2026-03-06T04:15:50.910Z"
+  },
+  {
+    "id": "38dceb4b-845a-4b1b-9102-6e692b3550df",
+    "teamId": "michigan",
+    "author": "Jake",
+    "content": "Barnett and Gayle still hold this team back they are very serviceable but not special.",
+    "createdAt": "2026-03-06T04:16:06.577Z",
+    "updatedAt": "2026-03-06T04:16:06.577Z"
+  },
+  {
+    "id": "9d7dbb0e-0b4e-4894-b8f4-7eadc2e49693",
+    "teamId": "michigan",
+    "author": "Jake",
+    "content": "Their super big lineup with Yaxel, Mara and Johnson is nasty! Should be closing lineup every game.",
+    "createdAt": "2026-03-06T04:16:24.903Z",
+    "updatedAt": "2026-03-06T04:16:24.903Z"
+  },
+  {
+    "id": "5271589d-966a-4784-9069-47155a0e0f87",
+    "teamId": "michigan",
+    "author": "Jake",
+    "content": "Shooting will hurt but teams can’t go small against it too much size and nasty on defense just clogs up everything!",
+    "createdAt": "2026-03-06T04:16:37.709Z",
+    "updatedAt": "2026-03-06T04:16:37.709Z"
+  },
+  {
+    "id": "98238774-b02a-4b47-8a6b-a6b1ec1e67d0",
+    "teamId": "michigan",
+    "author": "Ben",
+    "content": "Feels to me like their losing condition is Elliot Cadeau turnover fest + off-shooting night. It has happened quite a few times but most of the time they survived (TCU, Wake Forest, Duke, Northwestern). I think a huge reason they survived those games was LJ Cason was able to come in a play well in replacement for Cadeau. Interested to see if that injury proves detrimental.",
+    "createdAt": "2026-03-06T04:19:27.778Z",
+    "updatedAt": "2026-03-06T04:19:27.778Z"
+  },
+  {
+    "id": "38306e7b-2d33-481f-b698-ce8b71e6a5c8",
+    "teamId": "wisconsin",
+    "author": "Jake",
+    "content": "John Blackwell is very good and so is the other guard Boyd they drive their offense.",
+    "createdAt": "2026-03-06T04:20:25.005Z",
+    "updatedAt": "2026-03-06T04:20:25.005Z"
+  },
+  {
+    "id": "d995960a-fa58-4fbd-b59f-13cb7c521167",
+    "teamId": "wisconsin",
+    "author": "Jake",
+    "content": "Winter is a good big who can step out and hit the three and has some good post touch.",
+    "createdAt": "2026-03-06T04:20:47.311Z",
+    "updatedAt": "2026-03-06T04:20:47.311Z"
+  },
+  {
+    "id": "49b508f4-e9d6-4fe7-8f63-866d0e98795a",
+    "teamId": "wisconsin",
+    "author": "Jake",
+    "content": "They have a team of players that can all hit the three.",
+    "createdAt": "2026-03-06T04:21:01.411Z",
+    "updatedAt": "2026-03-06T04:21:01.411Z"
+  },
+  {
+    "id": "36cbd95a-0986-47e3-8e3f-23e8c6efc6fa",
+    "teamId": "wisconsin",
+    "author": "Jake",
+    "content": "On the negative side they don’t play defense well they don’t rebound and if there is games, they are not hitting the three they have a hard time finding offense outside their main guys.",
+    "createdAt": "2026-03-06T04:21:26.410Z",
+    "updatedAt": "2026-03-06T04:21:26.410Z"
+  },
+  {
+    "id": "8145890e-61c2-4c1f-b61b-095f4bf7cd61",
+    "teamId": "wisconsin",
+    "author": "Jake",
+    "content": "The role players can’t create shots.",
+    "createdAt": "2026-03-06T04:21:35.438Z",
+    "updatedAt": "2026-03-06T04:21:35.438Z"
+  },
+  {
+    "id": "917e0cd3-a9a6-4b92-91e0-8115d7a7bf46",
+    "teamId": "wisconsin",
+    "author": "Ben",
+    "content": "Ultimate 3-point lottery team. Can beat anyone but hot but will ultimately lose when they go cold. Have to be able to contain Boyd and Blackwell off the bounce though as well though.",
+    "createdAt": "2026-03-06T04:22:57.618Z",
+    "updatedAt": "2026-03-06T04:22:57.618Z"
+  },
+  {
+    "id": "cb49b62c-f3e9-4866-b6a1-957d913d4b69",
+    "teamId": "iowa",
+    "author": "Jake",
+    "content": "Really good up and coming coach in McCollum!",
+    "createdAt": "2026-03-06T04:23:40.961Z",
+    "updatedAt": "2026-03-06T04:23:40.961Z"
+  },
+  {
+    "id": "2fc3ca80-48bb-4ea3-8a07-e3f7f8019d1a",
+    "teamId": "iowa",
+    "author": "Jake",
+    "content": "Stritz is the whole team if he is off, they will lose, plays close to 40 minutes a game. They really lack a second option and go to guy when Stritz needs a break.",
+    "createdAt": "2026-03-06T04:24:06.257Z",
+    "updatedAt": "2026-03-06T04:24:06.257Z"
+  },
+  {
+    "id": "a4afdc1d-b9da-410a-9c96-fe778dd3144f",
+    "teamId": "iowa",
+    "author": "Jake",
+    "content": "They don’t push the ball at all no transition, really don’t offensive rebound well not sure if it was msu great rebounding or them wanting to get back and limit transition.",
+    "createdAt": "2026-03-06T04:24:33.290Z",
+    "updatedAt": "2026-03-06T04:24:33.290Z"
+  },
+  {
+    "id": "06f3cc1a-a9ee-4608-b793-298fea71c08c",
+    "teamId": "iowa",
+    "author": "Jake",
+    "content": " They play late into the clock and make you work on defense and force turnovers. Fringe tournament team.",
+    "createdAt": "2026-03-06T04:24:37.888Z",
+    "updatedAt": "2026-03-06T04:24:37.888Z"
+  },
+  {
+    "id": "7e4ee41e-939f-4bcc-90b4-b4ce3cb8ab6e",
+    "teamId": "usc",
+    "author": "Jake",
+    "content": "OMG they are so bad! Terrence Williams and Baker Mazara have no business being on a basketball court. Their defense is awful! Offense has no flow they don’t push tempo at all. Rice being out hurts them so much could be different with him and arenas. At the moment I would say not a tourney team",
+    "createdAt": "2026-03-06T04:25:49.982Z",
+    "updatedAt": "2026-03-06T04:25:49.982Z"
+  },
+  {
+    "id": "a1e95a06-ef5a-4b51-972f-bb4bfc1a43c5",
+    "teamId": "usc",
+    "author": "Ben",
+    "content": "This team sucks and will not make the tournament unless they do a 180 with Rice back",
+    "createdAt": "2026-03-06T04:26:02.848Z",
+    "updatedAt": "2026-03-06T04:26:02.848Z"
+  },
+  {
+    "id": "695db739-4e6d-41c0-8924-740291e86857",
+    "teamId": "indiana",
+    "author": "Jake",
+    "content": "They are fringe tournament team and will be a tough out if they are playing a bad defensive team because they can really score and shoot it.",
+    "createdAt": "2026-03-06T04:26:53.870Z",
+    "updatedAt": "2026-03-06T04:26:53.870Z"
+  },
+  {
+    "id": "24ac9fa8-12aa-496b-a229-6a78f68af316",
+    "teamId": "indiana",
+    "author": "Jake",
+    "content": "Not a lot of size and can be scored on down low.",
+    "createdAt": "2026-03-06T04:27:00.972Z",
+    "updatedAt": "2026-03-06T04:27:00.972Z"
+  },
+  {
+    "id": "7df6dae6-6135-49c4-a06c-5f097ae0c570",
+    "teamId": "indiana",
+    "author": "Jake",
+    "content": "They struggle to rebound defensively and don’t crash on offensive unless it a long rebound.",
+    "createdAt": "2026-03-06T04:27:16.680Z",
+    "updatedAt": "2026-03-06T04:27:16.680Z"
+  },
+  {
+    "id": "6a1b99a0-cafb-407c-b9b6-0ad2fa00198d",
+    "teamId": "indiana",
+    "author": "Jake",
+    "content": "Good at limiting transition.",
+    "createdAt": "2026-03-06T04:27:24.557Z",
+    "updatedAt": "2026-03-06T04:27:24.557Z"
+  },
+  {
+    "id": "175670fa-62bf-4cb8-982e-f56e7b350051",
+    "teamId": "indiana",
+    "author": "Jake",
+    "content": "Definitely an over team if they are playing not a great defense",
+    "createdAt": "2026-03-06T04:27:36.485Z",
+    "updatedAt": "2026-03-06T04:27:36.485Z"
+  },
+  {
+    "id": "deb60c50-4dc1-4953-a12e-c3503b8810ff",
+    "teamId": "indiana",
+    "author": "Ben",
+    "content": "Gotta chase Wilkerson off the 3pt line. Dangerous only to poorly coached teams that allow them to get hot",
+    "createdAt": "2026-03-06T04:27:57.474Z",
+    "updatedAt": "2026-03-06T04:27:57.474Z"
+  },
+  {
+    "id": "4b830709-8b45-4181-ad42-0b7ce6e130a2",
+    "teamId": "nebraska",
+    "author": "Ben",
+    "content": "ELITE no middle ameba defense. Force teams to take and make 3s will be such an interesting team matchup wise in March. The no middle defense is really set up to beat BIG Ten teams but could get torched by a team like Alabama",
+    "createdAt": "2026-03-06T04:29:36.459Z",
+    "updatedAt": "2026-03-06T04:29:36.459Z"
+  },
+  {
+    "id": "5c368b17-03b7-42b6-98ea-9162a0a892f8",
+    "teamId": "nebraska",
+    "author": "Ben",
+    "content": "Offensive Mast is an elite shooter and can score 1on1 in the post (Kohler ish)",
+    "createdAt": "2026-03-06T04:29:43.215Z",
+    "updatedAt": "2026-03-06T04:29:43.215Z"
+  },
+  {
+    "id": "d6fec6b5-8117-488a-ad77-014882e19968",
+    "teamId": "nebraska",
+    "author": "Ben",
+    "content": "Pryce Sandfort is another high volume 3pt guy who gets his shot off quickly.",
+    "createdAt": "2026-03-06T04:29:52.068Z",
+    "updatedAt": "2026-03-06T04:29:52.068Z"
+  },
+  {
+    "id": "c5b16536-4957-4ac5-8aa9-eb7d46a9391e",
+    "teamId": "nebraska",
+    "author": "Ben",
+    "content": "Frager is the off script late shot clock get a bucket guy",
+    "createdAt": "2026-03-06T04:29:58.674Z",
+    "updatedAt": "2026-03-06T04:29:58.674Z"
+  },
+  {
+    "id": "5c6f9656-645b-4b5b-ba01-15a5efec275c",
+    "teamId": "nebraska",
+    "author": "Ben",
+    "content": "Hoiberg is the glue especially defensively scrambles to cover up the rest of the defense.",
+    "createdAt": "2026-03-06T04:30:07.364Z",
+    "updatedAt": "2026-03-06T04:30:07.364Z"
+  },
+  {
+    "id": "ea0b8de8-7b35-45e1-8502-27af25802a4a",
+    "teamId": "purdue",
+    "author": "Ben",
+    "content": "I have completely figured out Purdue. It is as simple as they are the worst ball screen defending team I’ve watched this year. If a team is effective with the pick and roll, they will score at will. If not, they are fine. Dent and Wagler had their way. Gonna re watch Iowa St to see if that was the same.",
+    "createdAt": "2026-03-06T04:30:45.327Z",
+    "updatedAt": "2026-03-06T04:30:45.327Z"
+  },
+  {
+    "id": "0b185226-147d-4058-8dc4-ca4f8673bb95",
+    "teamId": "purdue",
+    "author": "Ben",
+    "content": "They can go double big so you have to have enough size to rebound and defend TKR + Cluff (I actually think they are better without both on floor because they can’t defend screens and it gives you two guys to pick on). Neither are high level shot blocking threats.",
+    "createdAt": "2026-03-06T04:31:00.304Z",
+    "updatedAt": "2026-03-06T04:31:00.304Z"
+  },
+  {
+    "id": "db6fd549-6693-4023-851d-c59ea5c9f9be",
+    "teamId": "purdue",
+    "author": "Ben",
+    "content": "Last box to check is you have to have a game plan for Braden Smith.",
+    "createdAt": "2026-03-06T04:31:06.373Z",
+    "updatedAt": "2026-03-06T04:31:06.373Z"
+  },
+  {
+    "id": "b8210a0a-a2de-45dc-82f4-255843dbef29",
+    "teamId": "north-carolina",
+    "author": "Ben",
+    "content": "Wilson is the truth uber athletic an impossible cover.",
+    "createdAt": "2026-03-06T04:31:45.217Z",
+    "updatedAt": "2026-03-06T04:31:45.217Z"
+  },
+  {
+    "id": "fe0ba383-a39d-4383-a89a-77919b1d5c7c",
+    "teamId": "north-carolina",
+    "author": "Ben",
+    "content": "Vessar is dynamic as well and can a score at all 3 levels as a big. ",
+    "createdAt": "2026-03-06T04:31:52.933Z",
+    "updatedAt": "2026-03-06T04:31:52.933Z"
+  },
+  {
+    "id": "3794b47e-8106-419b-88f1-0cae5c587951",
+    "teamId": "north-carolina",
+    "author": "Ben",
+    "content": "Trimble back from injury but is still taking time to get back into it. ",
+    "createdAt": "2026-03-06T04:31:59.188Z",
+    "updatedAt": "2026-03-06T04:31:59.188Z"
+  },
+  {
+    "id": "8c3325d4-2072-4ad4-a2a0-b6e568b1ffb4",
+    "teamId": "north-carolina",
+    "author": "Ben",
+    "content": "They have no answer for guards who can score and have been getting annihilated by any team with solid guard play. UPDATE: Much improved with Trimble healthy but still a weakness. Just less severe.",
+    "createdAt": "2026-03-06T04:32:31.476Z",
+    "updatedAt": "2026-03-06T04:32:31.476Z"
+  },
+  {
+    "id": "5147d80a-24d4-491c-8e97-8eeabb07b143",
+    "teamId": "north-carolina",
+    "author": "Ben",
+    "content": "Not enough guard play to win in March but could beat teams that lack size on defense or guards who can’t take advantage of their weak perimeter defense",
+    "createdAt": "2026-03-06T04:32:38.850Z",
+    "updatedAt": "2026-03-06T04:32:38.850Z"
+  },
+  {
+    "id": "b012f65c-c5fa-4ef0-81e1-b016eec4a5f7",
+    "teamId": "villanova",
+    "author": "Jake",
+    "content": "Bryce Perkins is a sniper.",
+    "createdAt": "2026-03-06T04:33:34.338Z",
+    "updatedAt": "2026-03-06T04:33:34.338Z"
+  },
+  {
+    "id": "b7a852c6-99ba-437c-8113-0898f366716f",
+    "teamId": "villanova",
+    "author": "Jake",
+    "content": "Could have some three-point shooters but I wasn’t very impressed by anything they did vs BYU!",
+    "createdAt": "2026-03-06T04:33:49.271Z",
+    "updatedAt": "2026-03-06T04:33:49.271Z"
+  },
+  {
+    "id": "20e1cba8-5356-4c88-ae0f-92621c25afec",
+    "teamId": "villanova",
+    "author": "Jake",
+    "content": "Really lack size and any down low scoring.",
+    "createdAt": "2026-03-06T04:33:58.764Z",
+    "updatedAt": "2026-03-06T04:33:58.764Z"
+  },
+  {
+    "id": "0e35d680-bbce-46ba-9a31-91d1b3a451b8",
+    "teamId": "st-johns-ny",
+    "author": "Jake",
+    "content": "Hopkins was unbelievable against UConn. That’s all I have",
+    "createdAt": "2026-03-06T04:42:23.620Z",
+    "updatedAt": "2026-03-06T04:42:23.620Z"
+  },
+  {
+    "id": "c4be18a9-b2af-4563-9956-ef239c8583b1",
+    "teamId": "gonzaga",
+    "author": "Jake",
+    "content": "Old team that is going to be so good! Two very good bigs in Huff and Ike",
+    "createdAt": "2026-03-06T04:42:55.836Z",
+    "updatedAt": "2026-03-06T04:42:55.836Z"
+  },
+  {
+    "id": "a4685246-a7f9-473f-a8d0-cad9077fb40f",
+    "teamId": "gonzaga",
+    "author": "Jake",
+    "content": "They have shooting around them and some good interior defense. Struggled to defend the outside three!",
+    "createdAt": "2026-03-06T04:43:11.900Z",
+    "updatedAt": "2026-03-06T04:43:11.900Z"
+  },
+  {
+    "id": "74102feb-fde0-4119-baf1-7960836de77a",
+    "teamId": "gonzaga",
+    "author": "Jake",
+    "content": "They have good pace and can score from anywhere!",
+    "createdAt": "2026-03-06T04:43:18.998Z",
+    "updatedAt": "2026-03-06T04:43:18.998Z"
+  }
+]
