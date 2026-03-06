@@ -85,7 +85,17 @@ export function createRatingBounds(teams: Team[]): RatingBounds {
 }
 
 export function createRadarBounds(teams: Team[]): RadarBounds {
-  const radarMetrics = radarMetricGroups.flatMap((group) => group.metrics);
+  const radarMetrics: Array<{
+    key: RadarMetricKey;
+    label: string;
+    higherIsBetter: boolean;
+  }> = [];
+
+  for (const group of radarMetricGroups) {
+    for (const metric of group.metrics) {
+      radarMetrics.push(metric);
+    }
+  }
 
   return radarMetrics.reduce<RadarBounds>((acc, metric) => {
     const values = teams

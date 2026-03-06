@@ -16,12 +16,6 @@ export function resolveExcelPath(relativeOrAbsolutePath?: string) {
     : path.join(process.cwd(), relativeOrAbsolutePath);
 }
 
-export function importTeamsFromExcel(params?: { filePath?: string; sheetName?: string }): {
-  teams: TeamInput[];
-  workbookPath: string;
-  sheetName: string;
-};
-
 export async function importTeamsFromExcel(params?: {
   filePath?: string;
   sheetName?: string;

@@ -17,13 +17,16 @@ type ChartContainerProps = React.ComponentProps<"div"> & {
 };
 
 export function ChartContainer({ config, className, children, ...props }: ChartContainerProps) {
-  const style = React.useMemo(() => {
-    return Object.entries(config).reduce<React.CSSProperties>((acc, [key, value]) => {
+  const style = React.useMemo<React.CSSProperties>(() => {
+    const cssVars: Record<`--color-${string}`, string> = {};
+
+    for (const [key, value] of Object.entries(config)) {
       if (value.color) {
-        acc[`--color-${key}` as keyof React.CSSProperties] = value.color;
+        cssVars[`--color-${key}`] = value.color;
       }
-      return acc;
-    }, {});
+    }
+
+    return cssVars as React.CSSProperties;
   }, [config]);
 
   return (

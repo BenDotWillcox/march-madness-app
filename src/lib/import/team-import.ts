@@ -205,8 +205,7 @@ export function parseTeamRows(rows: TabularRow[]): TeamInput[] {
     }
   }
 
-  return rows
-    .map((row) => {
+  const parsedTeams: Array<TeamInput | null> = rows.map((row) => {
       const name = valueByAliases(row, teamColumnMap.name)?.trim() ?? "";
       if (!name) {
         return null;
@@ -279,8 +278,9 @@ export function parseTeamRows(rows: TabularRow[]): TeamInput[] {
         seed: seed == null ? undefined : Math.trunc(seed),
         teamColor: null,
       } satisfies TeamInput;
-    })
-    .filter((team): team is TeamInput => team !== null);
+    });
+
+  return parsedTeams.filter((team): team is TeamInput => team !== null);
 }
 
 export function rowsToTeamInputs(rows: TabularRow[]): TeamInput[] {
