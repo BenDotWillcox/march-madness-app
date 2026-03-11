@@ -54,6 +54,13 @@ export const resumeMetricsSchema = z.object({
   kpi: z.number().nullable().optional(),
 });
 
+export const teamTagTypeSchema = z.enum(["strength", "weakness"]);
+
+export const teamTagSchema = z.object({
+  label: z.string().trim().min(1),
+  type: teamTagTypeSchema,
+});
+
 export const teamSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
@@ -61,7 +68,7 @@ export const teamSchema = z.object({
   record: teamRecordSchema,
   predictiveMetrics: predictiveMetricsSchema,
   resumeMetrics: resumeMetricsSchema,
-  tags: z.array(z.string()).default([]),
+  tags: z.array(teamTagSchema).default([]),
   seed: z.number().int().min(1).max(16).optional(),
   teamColor: teamColorSchema.nullable().default(null),
   updatedAt: z.string().datetime(),
@@ -75,6 +82,8 @@ export const teamsFileSchema = z.array(teamSchema);
 
 export type Team = z.infer<typeof teamSchema>;
 export type TeamInput = z.infer<typeof teamInputSchema>;
+export type TeamTag = z.infer<typeof teamTagSchema>;
+export type TeamTagType = z.infer<typeof teamTagTypeSchema>;
 
 export const metricDisplayOrder = [
   {

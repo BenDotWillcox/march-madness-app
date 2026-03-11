@@ -7,6 +7,7 @@ import {
   type Team,
   type TeamInput,
 } from "@/lib/schema/team";
+import { normalizeTeamTags } from "@/lib/tags";
 import {
   teamNoteInputSchema,
   teamNoteSchema,
@@ -24,7 +25,7 @@ type TeamRow = {
   record: unknown;
   predictive_metrics: unknown;
   resume_metrics: unknown;
-  tags: string[] | null;
+  tags: unknown;
   seed: number | null;
   team_color: string | null;
   updated_at: string;
@@ -69,7 +70,7 @@ function rowToTeam(row: TeamRow): Team {
     record: row.record,
     predictiveMetrics: row.predictive_metrics,
     resumeMetrics: row.resume_metrics,
-    tags: row.tags ?? [],
+    tags: normalizeTeamTags(row.tags),
     seed: row.seed ?? undefined,
     teamColor: row.team_color,
     updatedAt: normalizeIsoDate(row.updated_at),

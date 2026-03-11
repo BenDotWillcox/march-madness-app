@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { formatRecord } from "@/lib/format";
 import { normalizeTeamColor } from "@/lib/team-color";
+import { teamTagBadgeClass } from "@/lib/tags";
 import type { TeamNote } from "@/lib/schema/note";
 import { cn } from "@/lib/utils";
 import { type Team } from "@/lib/schema/team";
@@ -158,7 +159,7 @@ export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareVi
       return (
         team.name.toLowerCase().includes(normalizedQuery) ||
         team.conference.toLowerCase().includes(normalizedQuery) ||
-        team.tags.some((tag) => tag.toLowerCase().includes(normalizedQuery))
+        team.tags.some((tag) => tag.label.toLowerCase().includes(normalizedQuery))
       );
     });
   }, [leftTeamId, pickerSlot, rightTeamId, searchQuery, teams]);
@@ -264,8 +265,12 @@ export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareVi
             {team.tags.length > 0 ? (
               <div className="flex flex-wrap gap-1">
                 {team.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
+                  <Badge
+                    key={`${tag.type}:${tag.label}`}
+                    variant="outline"
+                    className={teamTagBadgeClass(tag)}
+                  >
+                    {tag.label}
                   </Badge>
                 ))}
               </div>

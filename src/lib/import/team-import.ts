@@ -1,4 +1,5 @@
 import { type TeamInput } from "@/lib/schema/team";
+import { parseTeamTagsFromEditor } from "@/lib/tags";
 
 type TeamColumnMap = {
   id: string[];
@@ -271,10 +272,7 @@ export function parseTeamRows(rows: TabularRow[]): TeamInput[] {
           wab: toNumber(valueByAliases(row, teamColumnMap.wab)),
           kpi: toNumber(valueByAliases(row, teamColumnMap.kpi)),
         },
-        tags: (valueByAliases(row, teamColumnMap.tags) || "")
-          .split(/[;,]/)
-          .map((tag) => tag.trim())
-          .filter(Boolean),
+        tags: parseTeamTagsFromEditor((valueByAliases(row, teamColumnMap.tags) || "").replace(/;/g, ",")),
         seed: seed == null ? undefined : Math.trunc(seed),
         teamColor: null,
       } satisfies TeamInput;

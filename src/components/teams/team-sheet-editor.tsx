@@ -11,6 +11,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { normalizeTeamColor } from "@/lib/team-color";
+import {
+  parseTeamTagsFromEditor,
+  serializeTeamTagsForEditor,
+  teamTagBadgeClass,
+} from "@/lib/tags";
 import type { TeamNote } from "@/lib/schema/note";
 import type { Team } from "@/lib/schema/team";
 
@@ -79,10 +84,11 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
   const [q4Losses, setQ4Losses] = useState(team.resumeMetrics.q4Losses?.toString() ?? "");
   const [wab, setWab] = useState(team.resumeMetrics.wab?.toString() ?? "");
   const [kpi, setKpi] = useState(team.resumeMetrics.kpi?.toString() ?? "");
-  const [tags, setTags] = useState(team.tags.join(", "));
+  const [tags, setTags] = useState(serializeTeamTagsForEditor(team.tags));
   const [status, setStatus] = useState("");
   const [saving, setSaving] = useState(false);
   const accentColor = normalizeTeamColor(teamColor) ?? normalizeTeamColor(team.teamColor ?? "");
+  const parsedTags = useMemo(() => parseTeamTagsFromEditor(tags), [tags]);
 
   const payload = useMemo(() => {
     return {
@@ -114,10 +120,7 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
         wab: numberOrNull(wab),
         kpi: numberOrNull(kpi),
       },
-      tags: tags
-        .split(",")
-        .map((tag) => tag.trim())
-        .filter(Boolean),
+      tags: parsedTags,
       seed: seedOrUndefined(seed),
       teamColor: normalizeTeamColor(teamColor),
     };
@@ -140,16 +143,8 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
     q4Wins,
     seed,
     teamColor,
-    tags,
-    team.id,
-    team.name,
-    team.predictiveMetrics.defRank,
-    team.predictiveMetrics.defenseRating,
-    team.predictiveMetrics.offRank,
-    team.predictiveMetrics.offenseRating,
-    team.predictiveMetrics.overallRating,
-    team.predictiveMetrics.tempoRank,
-    team.predictiveMetrics.tempoRating,
+    team,
+    parsedTags,
     torvik,
     wab,
     wins,
@@ -177,7 +172,7 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
     setQ4Losses(team.resumeMetrics.q4Losses?.toString() ?? "");
     setWab(team.resumeMetrics.wab?.toString() ?? "");
     setKpi(team.resumeMetrics.kpi?.toString() ?? "");
-    setTags(team.tags.join(", "));
+    setTags(serializeTeamTagsForEditor(team.tags));
     setStatus("");
   }
 
@@ -247,15 +242,15 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
             </h4>
           </div>
           <div className="flex flex-wrap gap-2">
-            {tags
-              .split(",")
-              .map((tag) => tag.trim())
-              .filter(Boolean)
-              .map((tag) => (
-                <Badge key={tag} variant="secondary" className="max-w-full break-all">
-                  {tag}
-                </Badge>
-              ))}
+            {parsedTags.map((tag) => (
+              <Badge
+                key={`${tag.type}:${tag.label}`}
+                variant="outline"
+                className={`max-w-full break-all ${teamTagBadgeClass(tag)}`}
+              >
+                {tag.label}
+              </Badge>
+            ))}
           </div>
 
             {editing ? (
@@ -304,7 +299,7 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
                     id="tags"
                     value={tags}
                     onChange={(event) => setTags(event.target.value)}
-                    placeholder="defense, transition offense, depth"
+                    placeholder="shooting, weakness: turnover rate, transition offense"
                   />
                 </div>
               </div>

@@ -13,6 +13,35 @@ const supabase = createClient(supabaseUrl, serviceRoleKey);
 const teams = JSON.parse(await readFile("data/teams.json", "utf8"));
 const notes = JSON.parse(await readFile("data/notes.json", "utf8"));
 
+function normalizeTags(input) {
+  if (!Array.isArray(input)) {
+    return [];
+  }
+
+  return input
+    .map((tag) => {
+      if (typeof tag === "string") {
+        const label = tag.trim();
+        return label ? { label, type: "strength" } : null;
+      }
+
+      if (!tag || typeof tag !== "object") {
+        return null;
+      }
+
+      const label = typeof tag.label === "string" ? tag.label.trim() : "";
+      if (!label) {
+        return null;
+      }
+
+      return {
+        label,
+        type: tag.type === "weakness" ? "weakness" : "strength",
+      };
+    })
+    .filter(Boolean);
+}
+
 const teamRows = teams.map((t) => ({
   id: t.id,
   name: t.name,
@@ -20,7 +49,7 @@ const teamRows = teams.map((t) => ({
   record: t.record,
   predictive_metrics: t.predictiveMetrics,
   resume_metrics: t.resumeMetrics,
-  tags: t.tags ?? [],
+  tags: normalizeTags(t.tags),
   seed: t.seed ?? null,
   team_color: t.teamColor ?? null,
   updated_at: t.updatedAt,
