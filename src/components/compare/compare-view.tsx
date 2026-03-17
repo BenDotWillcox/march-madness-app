@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowDown, ArrowUp, Minus, TrendingDown, TrendingUp, XIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, Minus, TrendingDown, TrendingUp, XIcon } from "lucide-react";
 import { TeamNotes } from "@/components/teams/team-notes";
 import { TeamNameWithLogo } from "@/components/teams/team-name-with-logo";
 import { RatingGauges } from "@/components/teams/rating-gauges";
@@ -234,6 +234,8 @@ function BettingPanel({ game, teams, loading, error }: BettingPanelProps) {
     spreadDifference === null ? "neutral" : spreadDifference > 0 ? "over" : spreadDifference < 0 ? "under" : "neutral";
   const spreadBarWidth = Math.min((spreadAbsDifference || 0) * 6, 50);
   const spreadBarLeft = spreadEdgeDirection === "under" ? 50 - spreadBarWidth : 50;
+  const spreadDirectionArrowCount =
+    spreadEdgeDirection === "neutral" ? 0 : spreadBarWidth >= 26 ? 3 : spreadBarWidth >= 14 ? 2 : spreadBarWidth >= 7 ? 1 : 0;
   const spreadFavoriteTeam =
     favoriteTeamFromLine(game.vegasLine, game.home, game.away) ??
     favoriteTeamFromLine(game.line, game.home, game.away);
@@ -247,6 +249,18 @@ function BettingPanel({ game, teams, loading, error }: BettingPanelProps) {
         : spreadUnderdogTeam;
   const spreadLeanColor =
     spreadLeanTeam === game.home ? homeColor : spreadLeanTeam === game.away ? awayColor : null;
+  const spreadBarColor =
+    spreadEdgeDirection === "neutral"
+      ? "hsl(var(--muted-foreground))"
+      : spreadLeanColor ?? (spreadEdgeDirection === "under" ? "#10B981" : "#F43F5E");
+  const spreadDiffBadgeStyle =
+    spreadHasEdge && spreadLeanColor
+      ? {
+          color: spreadLeanColor,
+          borderColor: `${spreadLeanColor}66`,
+          backgroundColor: `${spreadLeanColor}1A`,
+        }
+      : undefined;
 
   const totalDifference =
     game.ou === null || game.vegasOu === null || Number.isNaN(game.ou) || Number.isNaN(game.vegasOu)
@@ -407,14 +421,14 @@ function BettingPanel({ game, teams, loading, error }: BettingPanelProps) {
                 <div className="flex flex-col items-center">
                   <div
                     className={cn(
-                      "flex items-center gap-1 rounded-full px-3 py-1",
-                      spreadHasEdge && spreadEdgeDirection === "under" && "bg-emerald-500/15 text-emerald-700",
-                      spreadHasEdge && spreadEdgeDirection === "over" && "bg-rose-500/15 text-rose-700",
-                      (!spreadHasEdge || spreadDifference === null) && "bg-muted text-muted-foreground",
+                      "flex items-center gap-1 rounded-full border px-3 py-1",
+                      spreadHasEdge && spreadLeanColor && "bg-background/50",
+                      (!spreadHasEdge || !spreadLeanColor || spreadDifference === null) && "border-transparent bg-muted text-muted-foreground",
                     )}
+                    style={spreadDiffBadgeStyle}
                   >
-                    {spreadEdgeDirection === "under" && <ArrowDown className="h-3.5 w-3.5" />}
-                    {spreadEdgeDirection === "over" && <ArrowUp className="h-3.5 w-3.5" />}
+                    {spreadEdgeDirection === "under" && <ChevronLeft className="h-3.5 w-3.5" />}
+                    {spreadEdgeDirection === "over" && <ChevronRight className="h-3.5 w-3.5" />}
                     {spreadEdgeDirection === "neutral" && <Minus className="h-3.5 w-3.5" />}
                     <span className="font-mono text-sm font-medium">{spreadDifference === null ? "-" : spreadAbsDifference.toFixed(1)}</span>
                   </div>
@@ -437,20 +451,39 @@ function BettingPanel({ game, teams, loading, error }: BettingPanelProps) {
               </div>
 
               <div className="mt-4">
-                <div className="relative h-2 w-full overflow-hidden rounded-full bg-muted">
+                <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted">
                   <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
                   <div
                     className={cn(
-                      "absolute top-0 h-full rounded-full transition-all duration-300",
-                      spreadEdgeDirection === "under" && "bg-emerald-500",
-                      spreadEdgeDirection === "over" && "bg-rose-500",
-                      spreadEdgeDirection === "neutral" && "bg-muted-foreground",
+                      "absolute top-0 flex h-full items-center overflow-hidden rounded-full transition-all duration-300",
                     )}
                     style={{
                       left: `${spreadBarLeft}%`,
                       width: `${spreadBarWidth}%`,
+                      backgroundColor: spreadBarColor,
                     }}
-                  />
+                  >
+                    {spreadDirectionArrowCount > 0 ? (
+                      <div
+                        className={cn(
+                          "flex w-full items-center px-1 text-white/90",
+                          spreadEdgeDirection === "under" ? "justify-start" : "justify-end",
+                        )}
+                      >
+                        {Array.from({ length: spreadDirectionArrowCount }).map((_, index) =>
+                          spreadEdgeDirection === "under" ? (
+                            <ChevronLeft key={`spread-dir-left-${index}`} className="h-2.5 w-2.5 drop-shadow-sm" aria-hidden="true" />
+                          ) : (
+                            <ChevronRight
+                              key={`spread-dir-right-${index}`}
+                              className="h-2.5 w-2.5 drop-shadow-sm"
+                              aria-hidden="true"
+                            />
+                          ),
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
                   <img
