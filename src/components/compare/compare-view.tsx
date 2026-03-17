@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { XIcon } from "lucide-react";
+import { ArrowDown, ArrowUp, Minus, TrendingDown, TrendingUp, XIcon } from "lucide-react";
 import { TeamNotes } from "@/components/teams/team-notes";
 import { TeamNameWithLogo } from "@/components/teams/team-name-with-logo";
 import { RatingGauges } from "@/components/teams/rating-gauges";
@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { formatRecord } from "@/lib/format";
+import { getTeamLogoPath, getTeamLogoPlaceholderPath } from "@/lib/team-logo";
+import type { Game } from "@/lib/schema/game";
 import { normalizeTeamColor } from "@/lib/team-color";
 import { teamTagBadgeClass } from "@/lib/tags";
 import type { TeamNote } from "@/lib/schema/note";
@@ -69,6 +71,8 @@ type CompareViewProps = {
   teams: Team[];
   initialTeamAId?: string;
   initialTeamBId?: string;
+  bracketGameId?: string;
+  season?: number;
 };
 
 const predictiveCompareMetrics = [
@@ -92,7 +96,559 @@ type CompareMetricKey =
   | (typeof resumeCompareMetrics)[number]["key"]
   | (typeof sideCompareMetrics)[number]["key"];
 
-export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareViewProps) {
+function formatDecimal(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return "-";
+  }
+
+  if (Number.isInteger(value)) {
+    return String(value);
+  }
+
+  return value.toFixed(1);
+}
+
+function formatWinProb(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return "-";
+  }
+
+  const normalized = value > 1 ? value : value * 100;
+  return `${normalized.toFixed(1)}%`;
+}
+
+function normalizeWinProbPercent(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return null;
+  }
+
+  const normalized = value > 1 ? value : value * 100;
+  return Math.min(100, Math.max(0, normalized));
+}
+
+function signedNumber(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return "-";
+  }
+
+  return `${value > 0 ? "+" : ""}${value.toFixed(1)}`;
+}
+
+function formatSpreadValue(value: number | null) {
+  if (value === null || Number.isNaN(value)) {
+    return "-";
+  }
+
+  if (value === 0) {
+    return "PK";
+  }
+
+  return `${value > 0 ? "+" : ""}${value.toFixed(1)}`;
+}
+
+function favoriteTeamFromLine(line: number | null, homeTeam: string, awayTeam: string) {
+  if (line === null || Number.isNaN(line) || line === 0) {
+    return null;
+  }
+
+  return line < 0 ? homeTeam : awayTeam;
+}
+
+function resolveWinProbSplit(homeValue: number | null, awayValue: number | null) {
+  const home = normalizeWinProbPercent(homeValue);
+  const away = normalizeWinProbPercent(awayValue);
+
+  if (home === null && away === null) {
+    return null;
+  }
+
+  if (home !== null && away === null) {
+    return { home, away: Math.max(0, 100 - home) };
+  }
+
+  if (home === null && away !== null) {
+    return { home: Math.max(0, 100 - away), away };
+  }
+
+  const safeHome = home ?? 50;
+  const safeAway = away ?? 50;
+  const total = safeHome + safeAway;
+  if (total <= 0) {
+    return { home: 50, away: 50 };
+  }
+
+  return {
+    home: (safeHome / total) * 100,
+    away: (safeAway / total) * 100,
+  };
+}
+
+function teamForGameSide(teamName: string, teams: Team[]) {
+  const target = teamName.trim().toLowerCase();
+  const matched = teams.find((team) => team.name.trim().toLowerCase() === target);
+  if (!matched) {
+    return null;
+  }
+
+  return {
+    team: matched,
+    color: normalizeTeamColor(matched.teamColor) ?? "#6B7280",
+  };
+}
+
+type BettingPanelProps = {
+  game: Game;
+  teams: Team[];
+  loading: boolean;
+  error: string | null;
+};
+
+function BettingPanel({ game, teams, loading, error }: BettingPanelProps) {
+  const [activeWinSlice, setActiveWinSlice] = useState<"home" | "away" | null>(null);
+  const loadingText = loading ? "Loading betting lines..." : null;
+  const errorText = !loading && error ? error : null;
+  const home = teamForGameSide(game.home, teams);
+  const away = teamForGameSide(game.away, teams);
+  const homeColor = home?.color ?? "#60A5FA";
+  const awayColor = away?.color ?? "#F87171";
+  const winProbSplit = resolveWinProbSplit(game.homeWinProb, game.awayWinProb);
+  const homeWinProb = winProbSplit?.home ?? 50;
+  const awayWinProb = winProbSplit?.away ?? 50;
+  const leadingSide = (() => {
+    if (!winProbSplit) {
+      return null;
+    }
+    if (homeWinProb >= awayWinProb) {
+      return "home";
+    }
+    return "away";
+  })();
+  const leadingTeamName = leadingSide === "away" ? game.away : game.home;
+  const spreadDifference =
+    game.line === null || game.vegasLine === null || Number.isNaN(game.line) || Number.isNaN(game.vegasLine)
+      ? null
+      : game.line - game.vegasLine;
+  const spreadAbsDifference = Math.abs(spreadDifference ?? 0);
+  const spreadHasEdge = spreadDifference !== null && spreadAbsDifference >= 0.5;
+  const spreadEdgeDirection =
+    spreadDifference === null ? "neutral" : spreadDifference > 0 ? "over" : spreadDifference < 0 ? "under" : "neutral";
+  const spreadBarWidth = Math.min((spreadAbsDifference || 0) * 6, 50);
+  const spreadBarLeft = spreadEdgeDirection === "under" ? 50 - spreadBarWidth : 50;
+  const spreadFavoriteTeam =
+    favoriteTeamFromLine(game.vegasLine, game.home, game.away) ??
+    favoriteTeamFromLine(game.line, game.home, game.away);
+  const spreadUnderdogTeam =
+    spreadFavoriteTeam === null ? null : spreadFavoriteTeam === game.home ? game.away : game.home;
+  const spreadLeanTeam =
+    spreadDifference === null || spreadDifference === 0
+      ? null
+      : spreadDifference < 0
+        ? spreadFavoriteTeam
+        : spreadUnderdogTeam;
+  const spreadLeanColor =
+    spreadLeanTeam === game.home ? homeColor : spreadLeanTeam === game.away ? awayColor : null;
+
+  const totalDifference =
+    game.ou === null || game.vegasOu === null || Number.isNaN(game.ou) || Number.isNaN(game.vegasOu)
+      ? null
+      : game.ou - game.vegasOu;
+  const totalAbsDifference = Math.abs(totalDifference ?? 0);
+  const totalHasEdge = totalDifference !== null && totalAbsDifference >= 1;
+  const totalEdgeDirection =
+    totalDifference === null ? "neutral" : totalDifference > 0 ? "over" : totalDifference < 0 ? "under" : "neutral";
+  const totalIndicator = totalDifference === null ? 50 : 50 + Math.max(-45, Math.min(45, totalDifference * 2));
+  const totalBarWidth = Math.min(totalAbsDifference * 2, 45);
+  const totalBarLeft = totalEdgeDirection === "under" ? 50 - totalBarWidth : 50;
+  const totalPercentDiff =
+    totalDifference === null || game.vegasOu === null || game.vegasOu === 0
+      ? null
+      : ((totalDifference / game.vegasOu) * 100).toFixed(1);
+  const donutSize = 224;
+  const donutStroke = 32;
+  const donutRadius = (donutSize - donutStroke) / 2;
+  const donutCircumference = 2 * Math.PI * donutRadius;
+  const homeArcLength = (homeWinProb / 100) * donutCircumference;
+  const awayArcLength = donutCircumference - homeArcLength;
+  const hoveredTeamLabel =
+    activeWinSlice === "home"
+      ? `${game.home}: ${homeWinProb.toFixed(1)}%`
+      : activeWinSlice === "away"
+        ? `${game.away}: ${awayWinProb.toFixed(1)}%`
+        : null;
+
+  return (
+    <section className="space-y-2 rounded-lg border p-4">
+      <div>
+        <h4 className="text-base font-semibold">Betting Context</h4>
+        <p className="text-sm text-muted-foreground">Model projection vs market line for this bracket game.</p>
+      </div>
+      {loadingText ? <p className="text-sm text-muted-foreground">{loadingText}</p> : null}
+      {errorText ? <p className="text-sm text-destructive">{errorText}</p> : null}
+      {!loading && !error ? (
+        <div className="grid gap-4 lg:grid-cols-4">
+          <div className="flex h-full flex-col rounded-md border p-4 lg:col-span-1">
+            <p className="text-xs text-muted-foreground">Win Probability</p>
+            <div className="mt-3 flex flex-1 flex-col items-center justify-between gap-3">
+              <div className="relative h-56 w-56">
+                <svg width={donutSize} height={donutSize} viewBox={`0 0 ${donutSize} ${donutSize}`} className="-rotate-90">
+                  <circle
+                    cx={donutSize / 2}
+                    cy={donutSize / 2}
+                    r={donutRadius}
+                    fill="none"
+                    stroke="hsl(var(--muted))"
+                    strokeWidth={donutStroke}
+                  />
+                  <circle
+                    cx={donutSize / 2}
+                    cy={donutSize / 2}
+                    r={donutRadius}
+                    fill="none"
+                    stroke={homeColor}
+                    strokeWidth={activeWinSlice === "home" ? donutStroke + 8 : donutStroke}
+                    strokeDasharray={`${homeArcLength} ${donutCircumference - homeArcLength}`}
+                    style={{
+                      pointerEvents: "stroke",
+                      cursor: "pointer",
+                      filter: activeWinSlice === "home" ? "drop-shadow(0 4px 12px rgba(0,0,0,0.35))" : undefined,
+                      transition: "all 0.2s ease-out",
+                    }}
+                    onMouseEnter={() => setActiveWinSlice("home")}
+                    onMouseLeave={() => setActiveWinSlice(null)}
+                  >
+                    <title>{`${game.home}: ${homeWinProb.toFixed(1)}%`}</title>
+                  </circle>
+                  <circle
+                    cx={donutSize / 2}
+                    cy={donutSize / 2}
+                    r={donutRadius}
+                    fill="none"
+                    stroke={awayColor}
+                    strokeWidth={activeWinSlice === "away" ? donutStroke + 8 : donutStroke}
+                    strokeDasharray={`${awayArcLength} ${donutCircumference - awayArcLength}`}
+                    strokeDashoffset={-homeArcLength}
+                    style={{
+                      pointerEvents: "stroke",
+                      cursor: "pointer",
+                      filter: activeWinSlice === "away" ? "drop-shadow(0 4px 12px rgba(0,0,0,0.35))" : undefined,
+                      transition: "all 0.2s ease-out",
+                    }}
+                    onMouseEnter={() => setActiveWinSlice("away")}
+                    onMouseLeave={() => setActiveWinSlice(null)}
+                  >
+                    <title>{`${game.away}: ${awayWinProb.toFixed(1)}%`}</title>
+                  </circle>
+                </svg>
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <img
+                    src={getTeamLogoPath(leadingTeamName)}
+                    alt={`${leadingTeamName} logo`}
+                    width={88}
+                    height={88}
+                    className="object-contain"
+                    loading="lazy"
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      image.onerror = null;
+                      image.src = getTeamLogoPlaceholderPath();
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="min-h-5 text-center text-xs font-semibold">
+                {hoveredTeamLabel ? <span>{hoveredTeamLabel}</span> : null}
+              </div>
+              <div className="grid w-full grid-cols-2 gap-2 text-[11px] font-medium">
+                <span className="flex items-center gap-2 rounded border border-white/20 px-2 py-1 text-white">
+                  <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full" style={{ backgroundColor: awayColor }} aria-hidden="true" />
+                  <span className="min-w-0 truncate">
+                    {game.away}: {awayWinProb.toFixed(1)}%
+                  </span>
+                </span>
+                <span className="flex items-center gap-2 rounded border border-white/20 px-2 py-1 text-white">
+                  <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full" style={{ backgroundColor: homeColor }} aria-hidden="true" />
+                  <span className="min-w-0 truncate">
+                    {game.home}: {homeWinProb.toFixed(1)}%
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-3 lg:col-span-2">
+            <div className="rounded-md border p-4">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Spread</span>
+                <Badge
+                  variant={spreadLeanColor ? "outline" : "secondary"}
+                  className="text-[10px] uppercase tracking-wide"
+                  style={
+                    spreadLeanColor
+                      ? {
+                          color: spreadLeanColor,
+                          borderColor: `${spreadLeanColor}66`,
+                          backgroundColor: `${spreadLeanColor}1A`,
+                        }
+                      : undefined
+                  }
+                >
+                  {spreadLeanTeam ? `Model Lean: ${spreadLeanTeam}` : "Model Lean: None"}
+                </Badge>
+              </div>
+
+              <div className="flex items-end justify-between gap-4">
+                <div className="flex flex-col">
+                  <span className="mb-1 text-xs text-muted-foreground">Vegas</span>
+                  <span className="font-mono text-2xl font-semibold text-foreground">
+                    {formatSpreadValue(game.vegasLine)}
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div
+                    className={cn(
+                      "flex items-center gap-1 rounded-full px-3 py-1",
+                      spreadHasEdge && spreadEdgeDirection === "under" && "bg-emerald-500/15 text-emerald-700",
+                      spreadHasEdge && spreadEdgeDirection === "over" && "bg-rose-500/15 text-rose-700",
+                      (!spreadHasEdge || spreadDifference === null) && "bg-muted text-muted-foreground",
+                    )}
+                  >
+                    {spreadEdgeDirection === "under" && <ArrowDown className="h-3.5 w-3.5" />}
+                    {spreadEdgeDirection === "over" && <ArrowUp className="h-3.5 w-3.5" />}
+                    {spreadEdgeDirection === "neutral" && <Minus className="h-3.5 w-3.5" />}
+                    <span className="font-mono text-sm font-medium">{spreadDifference === null ? "-" : spreadAbsDifference.toFixed(1)}</span>
+                  </div>
+                  <span className="mt-1 text-xs text-muted-foreground">Diff</span>
+                </div>
+
+                <div className="flex flex-col items-end">
+                  <span className="mb-1 text-xs text-muted-foreground">Model</span>
+                  <span
+                    className={cn(
+                      "font-mono text-2xl font-semibold",
+                      spreadHasEdge && spreadEdgeDirection === "under" && "text-emerald-700",
+                      spreadHasEdge && spreadEdgeDirection === "over" && "text-rose-700",
+                      (!spreadHasEdge || spreadDifference === null) && "text-foreground",
+                    )}
+                  >
+                    {formatSpreadValue(game.line)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <div className="relative h-2 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="absolute left-1/2 top-0 h-full w-0.5 bg-border" aria-hidden="true" />
+                  <div
+                    className={cn(
+                      "absolute top-0 h-full rounded-full transition-all duration-300",
+                      spreadEdgeDirection === "under" && "bg-emerald-500",
+                      spreadEdgeDirection === "over" && "bg-rose-500",
+                      spreadEdgeDirection === "neutral" && "bg-muted-foreground",
+                    )}
+                    style={{
+                      left: `${spreadBarLeft}%`,
+                      width: `${spreadBarWidth}%`,
+                    }}
+                  />
+                </div>
+                <div className="mt-2 flex items-center justify-between">
+                  <img
+                    src={getTeamLogoPath(spreadFavoriteTeam ?? game.home)}
+                    alt={`${spreadFavoriteTeam ?? game.home} logo`}
+                    width={18}
+                    height={18}
+                    className="object-contain"
+                    loading="lazy"
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      image.onerror = null;
+                      image.src = getTeamLogoPlaceholderPath();
+                    }}
+                  />
+                  <img
+                    src={getTeamLogoPath(spreadUnderdogTeam ?? game.away)}
+                    alt={`${spreadUnderdogTeam ?? game.away} logo`}
+                    width={18}
+                    height={18}
+                    className="object-contain"
+                    loading="lazy"
+                    onError={(event) => {
+                      const image = event.currentTarget;
+                      image.onerror = null;
+                      image.src = getTeamLogoPlaceholderPath();
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-md border p-4">
+              <div className="mb-3 flex items-center justify-between">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Total</span>
+                <div
+                  className={cn(
+                    "flex items-center gap-1.5 rounded-full px-2.5 py-1",
+                    totalHasEdge && totalEdgeDirection === "over" && "bg-emerald-500/15",
+                    totalHasEdge && totalEdgeDirection === "under" && "bg-rose-500/15",
+                    (!totalHasEdge || totalDifference === null) && "bg-muted",
+                  )}
+                >
+                  {totalEdgeDirection === "over" && (
+                    <TrendingUp className={cn("h-3.5 w-3.5", totalHasEdge ? "text-emerald-700" : "text-muted-foreground")} />
+                  )}
+                  {totalEdgeDirection === "under" && (
+                    <TrendingDown className={cn("h-3.5 w-3.5", totalHasEdge ? "text-red-700" : "text-muted-foreground")} />
+                  )}
+                  {totalEdgeDirection === "neutral" && <Minus className="h-3.5 w-3.5 text-muted-foreground" />}
+                  <span
+                    className={cn(
+                      "text-xs font-semibold uppercase",
+                      totalHasEdge && totalEdgeDirection === "over" && "text-emerald-700",
+                      totalHasEdge && totalEdgeDirection === "under" && "text-red-700",
+                      (!totalHasEdge || totalDifference === null) && "text-muted-foreground",
+                    )}
+                  >
+                    {totalEdgeDirection === "over" ? "Over" : totalEdgeDirection === "under" ? "Under" : "Push"}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-6">
+                <div className="flex flex-col">
+                  <span className="mb-1 text-xs text-muted-foreground">Vegas</span>
+                  <span className="font-mono text-3xl font-semibold text-foreground">
+                    {game.vegasOu === null || Number.isNaN(game.vegasOu) ? "-" : game.vegasOu.toFixed(1)}
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="flex items-baseline gap-1">
+                    <span
+                      className={cn(
+                        "font-mono text-xl font-bold",
+                        totalHasEdge && totalEdgeDirection === "over" && "text-emerald-700",
+                        totalHasEdge && totalEdgeDirection === "under" && "text-rose-700",
+                        (!totalHasEdge || totalDifference === null) && "text-muted-foreground",
+                      )}
+                    >
+                      {signedNumber(totalDifference)}
+                    </span>
+                  </div>
+                  <span className="text-xs text-muted-foreground">
+                    {totalPercentDiff === null ? "-" : `(${totalDifference && totalDifference > 0 ? "+" : ""}${totalPercentDiff}%)`}
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-end">
+                  <span className="mb-1 text-xs text-muted-foreground">Model</span>
+                  <span
+                    className={cn(
+                      "font-mono text-3xl font-semibold",
+                      totalHasEdge && totalEdgeDirection === "over" && "text-emerald-700",
+                      totalHasEdge && totalEdgeDirection === "under" && "text-rose-700",
+                      (!totalHasEdge || totalDifference === null) && "text-foreground",
+                    )}
+                  >
+                    {game.ou === null || Number.isNaN(game.ou) ? "-" : game.ou.toFixed(1)}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-4">
+                <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted">
+                  <div className="absolute left-1/2 top-0 z-10 h-full w-1 -translate-x-1/2 bg-orange-500/80" aria-hidden="true" />
+                  <div
+                    className={cn(
+                      "absolute top-1/2 h-2 w-2 -translate-y-1/2 rounded-full border-2 border-background transition-all duration-300",
+                      totalHasEdge && totalEdgeDirection === "over" && "bg-emerald-500",
+                      totalHasEdge && totalEdgeDirection === "under" && "bg-rose-500",
+                      (!totalHasEdge || totalDifference === null) && "bg-muted-foreground",
+                    )}
+                    style={{ left: `${totalIndicator}%` }}
+                  />
+                  <div
+                    className={cn(
+                      "absolute top-0 h-full transition-all duration-300",
+                      totalHasEdge && totalEdgeDirection === "over" && "bg-emerald-500/30",
+                      totalHasEdge && totalEdgeDirection === "under" && "bg-rose-500/30",
+                      (!totalHasEdge || totalDifference === null) && "bg-muted-foreground/30",
+                    )}
+                    style={{
+                      left: `${totalBarLeft}%`,
+                      width: `${totalBarWidth}%`,
+                    }}
+                  />
+                </div>
+                <div className="mt-1.5 flex justify-between text-xs text-muted-foreground">
+                  <span>Under</span>
+                  <span>Over</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex h-full flex-col rounded-md border px-2 py-2 lg:col-span-1">
+            <p className="text-xs text-muted-foreground">Predicted Score</p>
+            <div className="mt-2 flex flex-1 items-center rounded-md border px-3 py-3">
+              <div className="grid w-full grid-cols-[minmax(0,1fr)_2rem_minmax(0,1fr)] items-center gap-2">
+                <div className="min-w-0 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <img
+                      src={getTeamLogoPath(game.home)}
+                      alt={`${game.home} logo`}
+                      width={52}
+                      height={52}
+                      className="shrink-0 object-contain"
+                      loading="lazy"
+                      onError={(event) => {
+                        const image = event.currentTarget;
+                        image.onerror = null;
+                        image.src = getTeamLogoPlaceholderPath();
+                      }}
+                    />
+                    <span className="w-full truncate text-sm font-semibold">{game.home}</span>
+                  </div>
+                  <p className="mt-3 text-5xl font-bold leading-none">{formatDecimal(game.homeScore)}</p>
+                </div>
+
+                <div className="text-center text-xl font-semibold text-muted-foreground">-</div>
+
+                <div className="min-w-0 text-center">
+                  <div className="flex flex-col items-center gap-2">
+                    <img
+                      src={getTeamLogoPath(game.away)}
+                      alt={`${game.away} logo`}
+                      width={52}
+                      height={52}
+                      className="shrink-0 object-contain"
+                      loading="lazy"
+                      onError={(event) => {
+                        const image = event.currentTarget;
+                        image.onerror = null;
+                        image.src = getTeamLogoPlaceholderPath();
+                      }}
+                    />
+                    <span className="w-full truncate text-sm font-semibold">{game.away}</span>
+                  </div>
+                  <p className="mt-3 text-5xl font-bold leading-none">{formatDecimal(game.awayScore)}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+export function CompareView({
+  teams,
+  initialTeamAId,
+  initialTeamBId,
+  bracketGameId,
+  season,
+}: CompareViewProps) {
   const validInitialTeamAId =
     initialTeamAId && teams.some((team) => team.id === initialTeamAId) ? initialTeamAId : null;
   const validInitialTeamBId =
@@ -121,6 +677,9 @@ export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareVi
   const [searchQuery, setSearchQuery] = useState("");
   const [notesByTeamId, setNotesByTeamId] = useState<Record<string, TeamNote[]>>({});
   const [loadingNotesByTeamId, setLoadingNotesByTeamId] = useState<Record<string, boolean>>({});
+  const [bettingGame, setBettingGame] = useState<Game | null>(null);
+  const [bettingError, setBettingError] = useState<string | null>(null);
+  const [isBettingLoading, setIsBettingLoading] = useState(false);
   const requestedNotesRef = useRef<Record<string, true>>({});
 
   const teamA = useMemo(
@@ -194,6 +753,57 @@ export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareVi
       void loadTeamNotes(teamId);
     }
   }, [leftTeamId, rightTeamId]);
+
+  useEffect(() => {
+    if (!bracketGameId || !season) {
+      setBettingGame(null);
+      setBettingError(null);
+      setIsBettingLoading(false);
+      return;
+    }
+
+    const resolvedBracketGameId = bracketGameId;
+    const resolvedSeason = season;
+    let isCancelled = false;
+    async function loadBettingGame() {
+      setIsBettingLoading(true);
+      setBettingError(null);
+
+      try {
+        const response = await fetch(
+          `/api/games?bracketGameId=${encodeURIComponent(resolvedBracketGameId)}&season=${resolvedSeason}`,
+        );
+        if (!response.ok) {
+          if (!isCancelled) {
+            setBettingGame(null);
+            setBettingError("Unable to load betting context.");
+          }
+          return;
+        }
+
+        const json = (await response.json()) as { game?: Game | null };
+        if (!isCancelled) {
+          setBettingGame(json.game ?? null);
+          setBettingError(null);
+        }
+      } catch {
+        if (!isCancelled) {
+          setBettingGame(null);
+          setBettingError("Unable to load betting context.");
+        }
+      } finally {
+        if (!isCancelled) {
+          setIsBettingLoading(false);
+        }
+      }
+    }
+
+    void loadBettingGame();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [bracketGameId, season]);
 
   function openPicker(slot: PickerSlot) {
     setPickerSlot(slot);
@@ -418,6 +1028,22 @@ export function CompareView({ teams, initialTeamAId, initialTeamBId }: CompareVi
         How to use: click the <span className="font-semibold">+</span> button, search for a team as
         you type, and add up to two team sheets for side-by-side comparison.
       </p>
+      {bracketGameId && season ? (
+        bettingGame ? (
+          <BettingPanel game={bettingGame} teams={teams} loading={isBettingLoading} error={bettingError} />
+        ) : (
+          <section className="rounded-lg border p-4">
+            <h4 className="text-base font-semibold">Betting Context</h4>
+            {isBettingLoading ? (
+              <p className="mt-1 text-sm text-muted-foreground">Loading betting lines...</p>
+            ) : (
+              <p className="mt-1 text-sm text-muted-foreground">
+                {bettingError ?? "No betting row found for this matchup yet."}
+              </p>
+            )}
+          </section>
+        )
+      ) : null}
 
       {!teamA ? (
         <div className="flex min-h-[60vh] items-center justify-center rounded-lg border border-dashed">

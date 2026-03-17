@@ -16,6 +16,8 @@ type BracketCompareOverlayProps = {
   teams: Team[];
   teamAId?: string;
   teamBId?: string;
+  bracketGameId?: string;
+  season?: number;
   title: string;
 };
 
@@ -25,6 +27,8 @@ export function BracketCompareOverlay({
   teams,
   teamAId,
   teamBId,
+  bracketGameId,
+  season,
   title,
 }: BracketCompareOverlayProps) {
   return (
@@ -34,7 +38,13 @@ export function BracketCompareOverlay({
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>Compare the active matchup, then close to return to the bracket.</DialogDescription>
         </DialogHeader>
-        <CompareView teams={teams} initialTeamAId={teamAId} initialTeamBId={teamBId} />
+        <CompareView
+          teams={teams}
+          initialTeamAId={teamAId}
+          initialTeamBId={teamBId}
+          bracketGameId={bracketGameId}
+          season={season}
+        />
       </DialogContent>
     </Dialog>
   );
