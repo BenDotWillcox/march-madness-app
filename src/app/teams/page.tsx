@@ -3,6 +3,9 @@ import { TeamsTable } from "@/components/teams/teams-table";
 import { Button } from "@/components/ui/button";
 import { teamRepo } from "@/lib/data/team-repo";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function TeamsPage() {
   const teams = await teamRepo.listTeams();
 

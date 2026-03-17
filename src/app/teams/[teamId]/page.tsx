@@ -4,6 +4,9 @@ import { TeamSheetEditor } from "@/components/teams/team-sheet-editor";
 import { Button } from "@/components/ui/button";
 import { teamRepo } from "@/lib/data/team-repo";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type TeamPageProps = {
   params: Promise<{
     teamId: string;

@@ -2,6 +2,9 @@ import { BracketView } from "@/components/bracket/bracket-view";
 import { loadBracketState } from "@/lib/data/bracket-repo";
 import { teamRepo } from "@/lib/data/team-repo";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function BracketPage() {
   const [teams, bracketState] = await Promise.all([teamRepo.listTeams(), loadBracketState()]);
 

@@ -1,6 +1,9 @@
 import { CompareView } from "@/components/compare/compare-view";
 import { teamRepo } from "@/lib/data/team-repo";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type ComparePageProps = {
   searchParams?: Promise<{
     teamA?: string;
