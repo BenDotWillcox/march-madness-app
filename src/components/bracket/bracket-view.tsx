@@ -155,8 +155,8 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
               onCompare={(gameId) => dispatch({ type: "open-compare", gameId })}
             />
             <BracketRegionColumn
-              regionLabel="Midwest"
-              rounds={midwestRounds}
+              regionLabel="West"
+              rounds={westRounds}
               teamsById={teamsById}
               side="right"
               onPickWinner={(gameId, slot) => dispatch({ type: "pick-winner", gameId, slot })}
@@ -239,8 +239,8 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
               onCompare={(gameId) => dispatch({ type: "open-compare", gameId })}
             />
             <BracketRegionColumn
-              regionLabel="West"
-              rounds={westRounds}
+              regionLabel="Midwest"
+              rounds={midwestRounds}
               teamsById={teamsById}
               side="right"
               onPickWinner={(gameId, slot) => dispatch({ type: "pick-winner", gameId, slot })}

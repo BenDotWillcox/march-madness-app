@@ -38,7 +38,7 @@ function slotDisplayLabel(slot: BracketSlot, teamsById: Map<string, Team>) {
     }
   }
 
-  return slot.sourceLabel ?? "TBD";
+  return <span className="inline-flex min-h-6 items-center">{slot.sourceLabel ?? "TBD"}</span>;
 }
 
 function shouldRenderSeedPrefix(slot: BracketSlot) {
@@ -54,15 +54,53 @@ function gameInfoValue(value: string | null | undefined, fallback: string) {
   return value && value.trim().length > 0 ? value : fallback;
 }
 
-function buildGameTooltip(game: BracketGame, canCompare: boolean) {
+function formatDateOnlyValue(value: string) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) {
+    return null;
+  }
+
+  const [, year, month, day] = match;
+  const parsed = new Date(Number(year), Number(month) - 1, Number(day));
+  if (Number.isNaN(parsed.getTime())) {
+    return null;
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric",
+  }).format(parsed);
+}
+
+function formatTipoff(tipoff: string | null | undefined) {
+  const value = gameInfoValue(tipoff, "TBD");
+  if (value === "TBD") {
+    return value;
+  }
+
+  const trimmedValue = value.trim();
+  const dateOnly = formatDateOnlyValue(trimmedValue);
+  if (dateOnly) {
+    return `${dateOnly} (TBD)`;
+  }
+
+  const parsed = new Date(trimmedValue);
+  if (Number.isNaN(parsed.getTime())) {
+    return trimmedValue;
+  }
+
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(parsed);
+}
+
+function buildGameTooltip(game: BracketGame) {
   const lines = [
-    `Game: ${game.id}`,
-    `Tipoff: ${gameInfoValue(game.gameInfo?.tipoff, "TBD")}`,
-    `Location: ${gameInfoValue(game.gameInfo?.location, "TBD")}`,
     `Spread: ${gameInfoValue(game.gameInfo?.spread, "-")}`,
     `Total: ${gameInfoValue(game.gameInfo?.total, "-")}`,
-    canCompare ? "Click card to compare teams." : "Compare unlocks when both teams are known.",
-    "Click a team row to advance or unselect winner.",
   ];
 
   return lines.join("\n");
@@ -79,7 +117,9 @@ export function BracketGameCard({
 }: BracketGameCardProps) {
   const canCompare = Boolean(game.home.teamId && game.away.teamId);
   const WinnerChevron = direction === "left" ? ChevronLeftIcon : ChevronRightIcon;
-  const tooltip = buildGameTooltip(game, canCompare);
+  const tooltip = buildGameTooltip(game);
+  const location = gameInfoValue(game.gameInfo?.location, "TBD");
+  const tipoff = formatTipoff(game.gameInfo?.tipoff);
 
   function handleCompareOpen() {
     if (!canCompare) {
@@ -165,7 +205,13 @@ export function BracketGameCard({
           ) : null}
         </button>
 
-        <div className="flex items-center justify-end pt-0">
+        <div className="flex items-start justify-between gap-1 pt-0">
+          <div className={cn("min-w-0 text-muted-foreground", compact ? "text-[0.6rem] leading-tight" : "text-[0.68rem] leading-tight")}>
+            <div className="truncate" title={location}>
+              {location}
+            </div>
+            <div>{tipoff}</div>
+          </div>
           <span
             title={tooltip}
             className="inline-flex items-center text-muted-foreground/80 transition-colors hover:text-foreground cursor-help"

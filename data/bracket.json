@@ -1,5 +1,1681 @@
 {
   "year": 2026,
-  "games": [],
-  "updatedAt": "2026-03-06T00:00:00.000Z"
+  "games": [
+    {
+      "id": "first-four-1",
+      "round": "first_four",
+      "region": "national",
+      "home": {
+        "seed": 16,
+        "teamId": "umbc",
+        "sourceLabel": "(16) UMBC"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": "howard",
+        "sourceLabel": "(16) Howard"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r64-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-17T18:40:00-05:00",
+        "location": "Dayton, OH",
+        "spread": "UMBC -1.5",
+        "total": "140.5"
+      }
+    },
+    {
+      "id": "first-four-2",
+      "round": "first_four",
+      "region": "national",
+      "home": {
+        "seed": 11,
+        "teamId": "texas",
+        "sourceLabel": "(11) Texas"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": "nc-st",
+        "sourceLabel": "(11) NC St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r64-5",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-17T21:15:00-05:00",
+        "location": "Dayton, OH",
+        "spread": "NC St. -1.5",
+        "total": "158.5"
+      }
+    },
+    {
+      "id": "first-four-3",
+      "round": "first_four",
+      "region": "national",
+      "home": {
+        "seed": 16,
+        "teamId": "prairie-view",
+        "sourceLabel": "(16) Prairie View"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": "lehigh",
+        "sourceLabel": "(16) Lehigh"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r64-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-18T18:40:00-05:00",
+        "location": "Dayton, OH",
+        "spread": "Lehigh -3.5",
+        "total": "142.5"
+      }
+    },
+    {
+      "id": "first-four-4",
+      "round": "first_four",
+      "region": "national",
+      "home": {
+        "seed": 11,
+        "teamId": "miami-oh",
+        "sourceLabel": "(11) Miami (OH)"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": "smu",
+        "sourceLabel": "(11) SMU"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r64-5",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-18T21:15:00-05:00",
+        "location": "Dayton, OH",
+        "spread": "SMU -7.5",
+        "total": "164.5"
+      }
+    },
+    {
+      "id": "east-r64-1",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 1,
+        "teamId": "duke",
+        "sourceLabel": "(1) Duke"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": "siena",
+        "sourceLabel": "(16) Siena"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T14:50:00-05:00",
+        "location": "Greenville, SC",
+        "spread": "Duke -29.5",
+        "total": "136.5"
+      }
+    },
+    {
+      "id": "east-r64-2",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 8,
+        "teamId": "ohio-st",
+        "sourceLabel": "(8) Ohio St."
+      },
+      "away": {
+        "seed": 9,
+        "teamId": "tcu",
+        "sourceLabel": "(9) TCU"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T12:15:00-05:00",
+        "location": "Greenville, SC",
+        "spread": "Ohio St. -2.5",
+        "total": "146.5"
+      }
+    },
+    {
+      "id": "east-r64-3",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 5,
+        "teamId": "st-johns-ny",
+        "sourceLabel": "(5) St. John's"
+      },
+      "away": {
+        "seed": 12,
+        "teamId": "northern-iowa",
+        "sourceLabel": "(12) Northern Iowa"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T19:10:00-05:00",
+        "location": "San Diego, CA",
+        "spread": "St. John's -10.5",
+        "total": "131.5"
+      }
+    },
+    {
+      "id": "east-r64-4",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 4,
+        "teamId": "kansas",
+        "sourceLabel": "(4) Kansas"
+      },
+      "away": {
+        "seed": 13,
+        "teamId": "california-baptist",
+        "sourceLabel": "(13) Cal Baptist"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T21:45:00-05:00",
+        "location": "San Diego, CA",
+        "spread": "Kansas -14.5",
+        "total": "137.5"
+      }
+    },
+    {
+      "id": "east-r64-5",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 6,
+        "teamId": "louisville",
+        "sourceLabel": "(6) Louisville"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": "south-fla",
+        "sourceLabel": "(11) South Florida"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-3",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T13:30:00-05:00",
+        "location": "Buffalo, NY",
+        "spread": "Louisville -5.5",
+        "total": "165.5"
+      }
+    },
+    {
+      "id": "east-r64-6",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 3,
+        "teamId": "michigan-st",
+        "sourceLabel": "(3) Michigan St."
+      },
+      "away": {
+        "seed": 14,
+        "teamId": "north-dakota-st",
+        "sourceLabel": "(14) North Dakota St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-3",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T16:05:00-05:00",
+        "location": "Buffalo, NY",
+        "spread": "Michigan St. -16.5",
+        "total": "143.5"
+      }
+    },
+    {
+      "id": "east-r64-7",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 7,
+        "teamId": "ucla",
+        "sourceLabel": "(7) UCLA"
+      },
+      "away": {
+        "seed": 10,
+        "teamId": "ucf",
+        "sourceLabel": "(10) UCF"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-4",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T19:25:00-05:00",
+        "location": "Philadelphia, PA",
+        "spread": "UCLA -6.5",
+        "total": "152.5"
+      }
+    },
+    {
+      "id": "east-r64-8",
+      "round": "round_of_64",
+      "region": "east",
+      "home": {
+        "seed": 2,
+        "teamId": "uconn",
+        "sourceLabel": "(2) UConn"
+      },
+      "away": {
+        "seed": 15,
+        "teamId": "furman",
+        "sourceLabel": "(15) Furman"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-r32-4",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T22:00:00-05:00",
+        "location": "Philadelphia, PA",
+        "spread": "UConn -20.5",
+        "total": "137.5"
+      }
+    },
+    {
+      "id": "east-r32-1",
+      "round": "round_of_32",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-s16-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Greenville, SC",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-r32-2",
+      "round": "round_of_32",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-s16-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "San Diego, CA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-r32-3",
+      "round": "round_of_32",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-5"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-6"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-s16-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Buffalo, NY",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-r32-4",
+      "round": "round_of_32",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-7"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r64-8"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-s16-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Buffalo, NY",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-s16-1",
+      "round": "sweet_16",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r32-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r32-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-e8-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Washington, DC",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-s16-2",
+      "round": "sweet_16",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r32-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-r32-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "east-e8-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Washington, DC",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "east-e8-1",
+      "round": "elite_8",
+      "region": "east",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-s16-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-s16-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "final-four-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Washington, DC",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-r64-1",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 1,
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": "liu",
+        "sourceLabel": "(16) LIU"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T13:35:00-05:00",
+        "location": "San Diego, CA",
+        "spread": "Arizona -31.5",
+        "total": "152.5"
+      }
+    },
+    {
+      "id": "west-r64-2",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 8,
+        "teamId": "villanova",
+        "sourceLabel": "(8) Villanova"
+      },
+      "away": {
+        "seed": 9,
+        "teamId": "utah-st",
+        "sourceLabel": "(9) Utah St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T16:10:00-05:00",
+        "location": "San Diego, CA",
+        "spread": "Utah St. -2.5",
+        "total": "147.5"
+      }
+    },
+    {
+      "id": "west-r64-3",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 5,
+        "teamId": "wisconsin",
+        "sourceLabel": "(5) Wisconsin"
+      },
+      "away": {
+        "seed": 12,
+        "teamId": "high-point",
+        "sourceLabel": "(12) High Point"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T13:50:00-05:00",
+        "location": "Portland, OR",
+        "spread": "Wisconsin -9.5",
+        "total": "164.5"
+      }
+    },
+    {
+      "id": "west-r64-4",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 4,
+        "teamId": "arkansas",
+        "sourceLabel": "(4) Arkansas"
+      },
+      "away": {
+        "seed": 13,
+        "teamId": "hawaii",
+        "sourceLabel": "(13) Hawaii"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T16:25:00-05:00",
+        "location": "Portland, OR",
+        "spread": "Arkansas -15.5",
+        "total": "160.5"
+      }
+    },
+    {
+      "id": "west-r64-5",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 6,
+        "teamId": "byu",
+        "sourceLabel": "(6) BYU"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": null,
+        "sourceLabel": "(11) WEST TBD"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-3",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T19:25:00-05:00",
+        "location": "Portland, OR",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-r64-6",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 3,
+        "teamId": "gonzaga",
+        "sourceLabel": "(3) Gonzaga"
+      },
+      "away": {
+        "seed": 14,
+        "teamId": "kennesaw-st",
+        "sourceLabel": "(14) Kennesaw St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-3",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T22:00:00-05:00",
+        "location": "Portland, OR",
+        "spread": "Gonzaga -20.5",
+        "total": "155.5"
+      }
+    },
+    {
+      "id": "west-r64-7",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 7,
+        "teamId": "miami-fl",
+        "sourceLabel": "(7) Miami (FL)"
+      },
+      "away": {
+        "seed": 10,
+        "teamId": "missouri",
+        "sourceLabel": "(10) Missouri"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-4",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T22:10:00-05:00",
+        "location": "St. Louis, MO",
+        "spread": "Miami (FL) -1.5",
+        "total": "147.5"
+      }
+    },
+    {
+      "id": "west-r64-8",
+      "round": "round_of_64",
+      "region": "west",
+      "home": {
+        "seed": 2,
+        "teamId": "purdue",
+        "sourceLabel": "(2) Purdue"
+      },
+      "away": {
+        "seed": 15,
+        "teamId": "queens",
+        "sourceLabel": "(15) Queens"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-r32-4",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T19:35:00-05:00",
+        "location": "St. Louis, MO",
+        "spread": "Purdue -24.5",
+        "total": "162.5"
+      }
+    },
+    {
+      "id": "west-r32-1",
+      "round": "round_of_32",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-s16-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "San Diego, CA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-r32-2",
+      "round": "round_of_32",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-s16-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Portland, OR",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-r32-3",
+      "round": "round_of_32",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-5"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-6"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-s16-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Portland, OR",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-r32-4",
+      "round": "round_of_32",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-7"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r64-8"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-s16-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "St. Louis, MO",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-s16-1",
+      "round": "sweet_16",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r32-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r32-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-e8-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "San Jose, CA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-s16-2",
+      "round": "sweet_16",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r32-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-r32-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "west-e8-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "San Jose, CA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "west-e8-1",
+      "round": "elite_8",
+      "region": "west",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-s16-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-s16-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "final-four-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "San Jose, CA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-r64-1",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 1,
+        "teamId": "florida",
+        "sourceLabel": "(1) Florida"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": null,
+        "sourceLabel": "(16) SOUTH TBD"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T21:25:00-05:00",
+        "location": "Tampa, FL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-r64-2",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 8,
+        "teamId": "clemson",
+        "sourceLabel": "(8) Clemson"
+      },
+      "away": {
+        "seed": 9,
+        "teamId": "iowa",
+        "sourceLabel": "(9) Iowa"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T18:50:00-05:00",
+        "location": "Tampa, FL",
+        "spread": "Iowa -2.5",
+        "total": "129.5"
+      }
+    },
+    {
+      "id": "south-r64-3",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 5,
+        "teamId": "vanderbilt",
+        "sourceLabel": "(5) Vanderbilt"
+      },
+      "away": {
+        "seed": 12,
+        "teamId": "mcneese-st",
+        "sourceLabel": "(12) McNeese St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T15:15:00-05:00",
+        "location": "Tampa, FL",
+        "spread": "Vanderbilt -11.5",
+        "total": "150.5"
+      }
+    },
+    {
+      "id": "south-r64-4",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 4,
+        "teamId": "nebraska",
+        "sourceLabel": "(4) Nebraska"
+      },
+      "away": {
+        "seed": 13,
+        "teamId": "troy",
+        "sourceLabel": "(13) Troy"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T12:40:00-05:00",
+        "location": "Oklahoma City, OK",
+        "spread": "Nebraska -12.5",
+        "total": "137.5"
+      }
+    },
+    {
+      "id": "south-r64-5",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 6,
+        "teamId": "north-carolina",
+        "sourceLabel": "(6) North Carolina"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": "vcu",
+        "sourceLabel": "(11) VCU"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-3",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T18:50:00-05:00",
+        "location": "Greenville, SC",
+        "spread": "North Carolina -2.5",
+        "total": "154.5"
+      }
+    },
+    {
+      "id": "south-r64-6",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 3,
+        "teamId": "illinois",
+        "sourceLabel": "(3) Illinois"
+      },
+      "away": {
+        "seed": 14,
+        "teamId": "penn",
+        "sourceLabel": "(14) Penn"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-3",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T21:25:00-05:00",
+        "location": "Greenville, SC",
+        "spread": "Illinois -24.5",
+        "total": "150.5"
+      }
+    },
+    {
+      "id": "south-r64-7",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 7,
+        "teamId": "saint-marys-ca",
+        "sourceLabel": "(7) Saint Mary's"
+      },
+      "away": {
+        "seed": 10,
+        "teamId": "texas-am",
+        "sourceLabel": "(10) Texas A&M"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-4",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T19:35:00Z",
+        "location": "Oklahoma City, OK",
+        "spread": "Saint Mary's -3.5",
+        "total": "147.5"
+      }
+    },
+    {
+      "id": "south-r64-8",
+      "round": "round_of_64",
+      "region": "south",
+      "home": {
+        "seed": 2,
+        "teamId": "houston",
+        "sourceLabel": "(2) Houston"
+      },
+      "away": {
+        "seed": 15,
+        "teamId": "idaho",
+        "sourceLabel": "(15) Idaho"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-r32-4",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T22:10:00-05:00",
+        "location": "Oklahoma City, OK",
+        "spread": "Houston -24.5",
+        "total": "135.5"
+      }
+    },
+    {
+      "id": "south-r32-1",
+      "round": "round_of_32",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-s16-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "Tampa, FL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-r32-2",
+      "round": "round_of_32",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-s16-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Oklahoma City, OK",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-r32-3",
+      "round": "round_of_32",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-5"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-6"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-s16-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Greenville, SC",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-r32-4",
+      "round": "round_of_32",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-7"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r64-8"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-s16-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Oklahoma City, OK",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-s16-1",
+      "round": "sweet_16",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r32-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r32-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-e8-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Houston, TX",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-s16-2",
+      "round": "sweet_16",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r32-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-r32-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "south-e8-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Houston, TX",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "south-e8-1",
+      "round": "elite_8",
+      "region": "south",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-s16-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-s16-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "final-four-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Houston, TX",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r64-1",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 1,
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
+      },
+      "away": {
+        "seed": 16,
+        "teamId": null,
+        "sourceLabel": "(16) MIDWEST TBD"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-19T19:10:00-05:00",
+        "location": "Buffalo, NY",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r64-2",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 8,
+        "teamId": "georgia",
+        "sourceLabel": "(8) Georgia"
+      },
+      "away": {
+        "seed": 9,
+        "teamId": "saint-louis",
+        "sourceLabel": "(9) Saint Louis"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-19T21:45:00-05:00",
+        "location": "Buffalo, NY",
+        "spread": "Georgia -2.5",
+        "total": "169.5"
+      }
+    },
+    {
+      "id": "midwest-r64-3",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 5,
+        "teamId": "texas-tech",
+        "sourceLabel": "(5) Texas Tech"
+      },
+      "away": {
+        "seed": 12,
+        "teamId": "akron",
+        "sourceLabel": "(12) Akron"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T12:40:00-05:00",
+        "location": "Tampa, FL",
+        "spread": "Texas Tech -7.5",
+        "total": "156.5"
+      }
+    },
+    {
+      "id": "midwest-r64-4",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 4,
+        "teamId": "alabama",
+        "sourceLabel": "(4) Alabama"
+      },
+      "away": {
+        "seed": 13,
+        "teamId": "hofstra",
+        "sourceLabel": "(13) Hofstra"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T15:15:00-05:00",
+        "location": "Tampa, FL",
+        "spread": "Alabama -13.5",
+        "total": "159.5"
+      }
+    },
+    {
+      "id": "midwest-r64-5",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 6,
+        "teamId": "tennessee",
+        "sourceLabel": "(6) Tennessee"
+      },
+      "away": {
+        "seed": 11,
+        "teamId": null,
+        "sourceLabel": "(11) MIDWEST TBD"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-3",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T16:25:00-05:00",
+        "location": "Philadelphia, PA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r64-6",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 3,
+        "teamId": "virginia",
+        "sourceLabel": "(3) Virginia"
+      },
+      "away": {
+        "seed": 14,
+        "teamId": "wright-st",
+        "sourceLabel": "(14) Wright State"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-3",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T13:50:00-05:00",
+        "location": "Philadelphia, PA",
+        "spread": "Virginia -18.5",
+        "total": "145.5"
+      }
+    },
+    {
+      "id": "midwest-r64-7",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 7,
+        "teamId": "kentucky",
+        "sourceLabel": "(7) Kentucky"
+      },
+      "away": {
+        "seed": 10,
+        "teamId": "santa-clara",
+        "sourceLabel": "(10) Santa Clara"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-4",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-20T12:15:00-05:00",
+        "location": "St. Louis, MO",
+        "spread": "Kentucky -3.5",
+        "total": "160.5"
+      }
+    },
+    {
+      "id": "midwest-r64-8",
+      "round": "round_of_64",
+      "region": "midwest",
+      "home": {
+        "seed": 2,
+        "teamId": "iowa-st",
+        "sourceLabel": "(2) Iowa St."
+      },
+      "away": {
+        "seed": 15,
+        "teamId": "tennessee-st",
+        "sourceLabel": "(15) Tennessee St."
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-r32-4",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-20T14:50:00-05:00",
+        "location": "St. Louis, MO",
+        "spread": "Iowa St. -25.5",
+        "total": "148.5"
+      }
+    },
+    {
+      "id": "midwest-r32-1",
+      "round": "round_of_32",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-s16-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-21",
+        "location": "Buffalo, NY",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r32-2",
+      "round": "round_of_32",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-s16-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "Tampa, FL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r32-3",
+      "round": "round_of_32",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-5"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-6"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-s16-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "Philadelphia, PA",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-r32-4",
+      "round": "round_of_32",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-7"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r64-8"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-s16-2",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": "2026-03-22",
+        "location": "St. Louis, MO",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-s16-1",
+      "round": "sweet_16",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r32-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r32-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-e8-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Chicago, IL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-s16-2",
+      "round": "sweet_16",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r32-3"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-r32-4"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "midwest-e8-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Chicago, IL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "midwest-e8-1",
+      "round": "elite_8",
+      "region": "midwest",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-s16-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-s16-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "final-four-2",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Chicago, IL",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "final-four-1",
+      "round": "final_4",
+      "region": "national",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of east-e8-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of south-e8-1"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "championship-1",
+      "nextSlot": "home",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Indianapolis, IN",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "final-four-2",
+      "round": "final_4",
+      "region": "national",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of midwest-e8-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of west-e8-1"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": "championship-1",
+      "nextSlot": "away",
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Indianapolis, IN",
+        "spread": null,
+        "total": null
+      }
+    },
+    {
+      "id": "championship-1",
+      "round": "championship",
+      "region": "national",
+      "home": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of final-four-1"
+      },
+      "away": {
+        "seed": null,
+        "teamId": null,
+        "sourceLabel": "Winner of final-four-2"
+      },
+      "winnerTeamId": null,
+      "winnerSourceLabel": null,
+      "nextGameId": null,
+      "nextSlot": null,
+      "gameInfo": {
+        "tipoff": null,
+        "location": "Indianapolis, IN",
+        "spread": null,
+        "total": null
+      }
+    }
+  ],
+  "updatedAt": "2026-03-16T14:34:41.971Z"
 }
