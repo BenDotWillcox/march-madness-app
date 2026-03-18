@@ -5,6 +5,7 @@ import { ChevronLeft, ChevronRight, Minus, TrendingDown, TrendingUp, XIcon } fro
 import { TeamNotes } from "@/components/teams/team-notes";
 import { TeamNameWithLogo } from "@/components/teams/team-name-with-logo";
 import { RatingGauges } from "@/components/teams/rating-gauges";
+import { DirectCompareRadarDialog } from "@/components/compare/direct-compare-radar-dialog";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -404,7 +405,7 @@ function CompareTravelLine({ teamName, projection, highlightedGameId, accentColo
           {timeline.segments.length === 0 ? (
             <div className="h-2 w-full bg-muted" />
           ) : (
-            timeline.segments.map((segment, index) => (
+            timeline.segments.map((segment) => (
               <div
                 key={`compare-segment-${teamName}-${segment.id}`}
                 className={cn(
@@ -944,6 +945,7 @@ export function CompareView({
     return validInitialTeamBId;
   });
   const [isPickerOpen, setIsPickerOpen] = useState(false);
+  const [isDirectCompareOpen, setIsDirectCompareOpen] = useState(false);
   const [pickerSlot, setPickerSlot] = useState<PickerSlot>("left");
   const [searchQuery, setSearchQuery] = useState("");
   const [notesByTeamId, setNotesByTeamId] = useState<Record<string, TeamNote[]>>({});
@@ -1396,6 +1398,24 @@ export function CompareView({
             </p>
           ) : null}
         </section>
+      ) : null}
+
+      {teamA && teamB ? (
+        <DirectCompareRadarDialog
+          open={isDirectCompareOpen}
+          onOpenChange={setIsDirectCompareOpen}
+          teams={teams}
+          teamA={teamA}
+          teamB={teamB}
+        />
+      ) : null}
+
+      {teamA && teamB ? (
+        <div className="flex justify-center">
+          <Button type="button" variant="outline" size="sm" onClick={() => setIsDirectCompareOpen(true)}>
+            Compare Directly
+          </Button>
+        </div>
       ) : null}
 
       {!teamA ? (
