@@ -15,8 +15,8 @@
         "teamId": "howard",
         "sourceLabel": "(16) Howard"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "howard",
+      "winnerSourceLabel": "(16) Howard",
       "nextGameId": "midwest-r64-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -40,8 +40,8 @@
         "teamId": "nc-st",
         "sourceLabel": "(11) NC St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "texas",
+      "winnerSourceLabel": "(11) Texas",
       "nextGameId": "west-r64-5",
       "nextSlot": "away",
       "gameInfo": {
@@ -396,7 +396,7 @@
       "nextSlot": "away",
       "gameInfo": {
         "tipoff": "2026-03-21",
-        "location": "Buffalo, NY",
+        "location": "Philadelphia, PA",
         "spread": null,
         "total": null
       }
@@ -587,8 +587,8 @@
       },
       "away": {
         "seed": 11,
-        "teamId": null,
-        "sourceLabel": "(11) WEST TBD"
+        "teamId": "texas",
+        "sourceLabel": "(11) Texas"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
@@ -1237,8 +1237,8 @@
       },
       "away": {
         "seed": 16,
-        "teamId": null,
-        "sourceLabel": "(16) MIDWEST TBD"
+        "teamId": "howard",
+        "sourceLabel": "(16) Howard"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,

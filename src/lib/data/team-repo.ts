@@ -28,6 +28,9 @@ type TeamRow = {
   tags: unknown;
   seed: number | null;
   team_color: string | null;
+  home_city_state: string | null;
+  home_lat: number | null;
+  home_lng: number | null;
   updated_at: string;
 };
 
@@ -73,6 +76,9 @@ function rowToTeam(row: TeamRow): Team {
     tags: normalizeTeamTags(row.tags),
     seed: row.seed ?? undefined,
     teamColor: row.team_color,
+    homeCityState: row.home_city_state,
+    homeLat: row.home_lat,
+    homeLng: row.home_lng,
     updatedAt: normalizeIsoDate(row.updated_at),
   });
 }
@@ -88,6 +94,9 @@ function teamToRow(team: Team): Omit<TeamRow, "updated_at"> & { updated_at: stri
     tags: team.tags,
     seed: team.seed ?? null,
     team_color: team.teamColor ?? null,
+    home_city_state: team.homeCityState ?? null,
+    home_lat: team.homeLat ?? null,
+    home_lng: team.homeLng ?? null,
     updated_at: team.updatedAt,
   };
 }
@@ -310,25 +319,42 @@ class SupabaseTeamRepo implements TeamRepo {
   async replaceTeams(inputs: TeamInput[]): Promise<{ total: number }> {
     const { data, error } = await this.supabase
       .from("teams")
-      .select("id, team_color");
+      .select("id, team_color, home_city_state, home_lat, home_lng");
 
     if (error) {
       throw new Error(`Failed to read existing teams for replace: ${error.message}`);
     }
 
-    const existingTeamColorById = new Map(
-      ((data ?? []) as Array<{ id: string; team_color: string | null }>).map(
-        (team) => [team.id, team.team_color],
-      ),
+    const existingTeamDataById = new Map(
+      (
+        (data ?? []) as Array<{
+          id: string;
+          team_color: string | null;
+          home_city_state: string | null;
+          home_lat: number | null;
+          home_lng: number | null;
+        }>
+      ).map((team) => [
+        team.id,
+        {
+          teamColor: team.team_color,
+          homeCityState: team.home_city_state,
+          homeLat: team.home_lat,
+          homeLng: team.home_lng,
+        },
+      ]),
     );
 
     const validated = inputs.map((input) => {
       const team = teamInputSchema.parse(input);
-      const existingTeamColor = existingTeamColorById.get(team.id);
+      const existingTeamData = existingTeamDataById.get(team.id);
 
       return teamSchema.parse({
         ...team,
-        teamColor: existingTeamColor ?? team.teamColor ?? DEFAULT_TEAM_COLOR,
+        teamColor: existingTeamData?.teamColor ?? team.teamColor ?? DEFAULT_TEAM_COLOR,
+        homeCityState: team.homeCityState ?? existingTeamData?.homeCityState ?? null,
+        homeLat: team.homeLat ?? existingTeamData?.homeLat ?? null,
+        homeLng: team.homeLng ?? existingTeamData?.homeLng ?? null,
         updatedAt: new Date().toISOString(),
       });
     });

@@ -1,4 +1,5 @@
 import { CompareView } from "@/components/compare/compare-view";
+import { loadBracketState } from "@/lib/data/bracket-repo";
 import { teamRepo } from "@/lib/data/team-repo";
 
 export const dynamic = "force-dynamic";
@@ -12,7 +13,7 @@ type ComparePageProps = {
 };
 
 export default async function ComparePage({ searchParams }: ComparePageProps) {
-  const teams = await teamRepo.listTeams();
+  const [teams, bracketState] = await Promise.all([teamRepo.listTeams(), loadBracketState()]);
   const params = (await searchParams) ?? {};
 
   return (
@@ -24,7 +25,12 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
         </p>
       </div>
 
-      <CompareView teams={teams} initialTeamAId={params.teamA} initialTeamBId={params.teamB} />
+      <CompareView
+        teams={teams}
+        initialTeamAId={params.teamA}
+        initialTeamBId={params.teamB}
+        bracketState={bracketState}
+      />
     </div>
   );
 }

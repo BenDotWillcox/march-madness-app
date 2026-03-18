@@ -52,6 +52,9 @@ const teamRows = teams.map((t) => ({
   tags: normalizeTags(t.tags),
   seed: t.seed ?? null,
   team_color: t.teamColor ?? null,
+  home_city_state: t.homeCityState ?? null,
+  home_lat: t.homeLat ?? null,
+  home_lng: t.homeLng ?? null,
   updated_at: t.updatedAt,
 }));
 

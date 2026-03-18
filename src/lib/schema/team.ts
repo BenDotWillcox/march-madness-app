@@ -2,6 +2,8 @@ import { z } from "zod";
 import { TEAM_COLOR_HEX_PATTERN } from "@/lib/team-color";
 
 const teamColorSchema = z.string().regex(TEAM_COLOR_HEX_PATTERN, "Must be a 6-digit hex color");
+const latitudeSchema = z.number().min(-90).max(90);
+const longitudeSchema = z.number().min(-180).max(180);
 
 export const teamRecordSchema = z.object({
   wins: z.number().int().min(0),
@@ -71,6 +73,9 @@ export const teamSchema = z.object({
   tags: z.array(teamTagSchema).default([]),
   seed: z.number().int().min(1).max(16).optional(),
   teamColor: teamColorSchema.nullable().default(null),
+  homeCityState: z.string().trim().min(1).nullable().optional(),
+  homeLat: latitudeSchema.nullable().optional(),
+  homeLng: longitudeSchema.nullable().optional(),
   updatedAt: z.string().datetime(),
 });
 

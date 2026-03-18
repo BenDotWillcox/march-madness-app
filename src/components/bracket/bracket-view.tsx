@@ -285,6 +285,7 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
         teamBId={compareGame?.away.teamId ?? undefined}
         bracketGameId={compareGame?.id}
         season={state.bracket.year}
+        bracketState={state.bracket}
         title={compareGame ? `Compare: ${compareGame.id}` : "Compare Matchup"}
       />
     </div>

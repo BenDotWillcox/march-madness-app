@@ -8,6 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import type { BracketState } from "@/lib/schema/bracket";
 import type { Team } from "@/lib/schema/team";
 
 type BracketCompareOverlayProps = {
@@ -18,6 +19,7 @@ type BracketCompareOverlayProps = {
   teamBId?: string;
   bracketGameId?: string;
   season?: number;
+  bracketState?: BracketState;
   title: string;
 };
 
@@ -29,6 +31,7 @@ export function BracketCompareOverlay({
   teamBId,
   bracketGameId,
   season,
+  bracketState,
   title,
 }: BracketCompareOverlayProps) {
   return (
@@ -44,6 +47,7 @@ export function BracketCompareOverlay({
           initialTeamBId={teamBId}
           bracketGameId={bracketGameId}
           season={season}
+          bracketState={bracketState}
         />
       </DialogContent>
     </Dialog>

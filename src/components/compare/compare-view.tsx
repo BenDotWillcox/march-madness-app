@@ -18,11 +18,17 @@ import { Input } from "@/components/ui/input";
 import { formatRecord } from "@/lib/format";
 import { getTeamLogoPath, getTeamLogoPlaceholderPath } from "@/lib/team-logo";
 import type { Game } from "@/lib/schema/game";
+import type { BracketState } from "@/lib/schema/bracket";
 import { normalizeTeamColor } from "@/lib/team-color";
 import { teamTagBadgeClass } from "@/lib/tags";
 import type { TeamNote } from "@/lib/schema/note";
 import { cn } from "@/lib/utils";
 import { type Team } from "@/lib/schema/team";
+import {
+  buildTeamTravelProjection,
+  collectMissingBracketLocationLabels,
+  type TeamTravelProjection,
+} from "@/lib/travel/team-travel";
 
 function metricValue(team: Team, key: string) {
   if (key in team.predictiveMetrics) {
@@ -73,6 +79,7 @@ type CompareViewProps = {
   initialTeamBId?: string;
   bracketGameId?: string;
   season?: number;
+  bracketState?: BracketState;
 };
 
 const predictiveCompareMetrics = [
@@ -106,15 +113,6 @@ function formatDecimal(value: number | null) {
   }
 
   return value.toFixed(1);
-}
-
-function formatWinProb(value: number | null) {
-  if (value === null || Number.isNaN(value)) {
-    return "-";
-  }
-
-  const normalized = value > 1 ? value : value * 100;
-  return `${normalized.toFixed(1)}%`;
 }
 
 function normalizeWinProbPercent(value: number | null) {
@@ -194,6 +192,245 @@ function teamForGameSide(teamName: string, teams: Team[]) {
     team: matched,
     color: normalizeTeamColor(matched.teamColor) ?? "#6B7280",
   };
+}
+
+function milesText(value: number | null) {
+  if (value === null) {
+    return "-";
+  }
+  return `${value.toLocaleString()} mi`;
+}
+
+function readableRoundLabel(round: string | null) {
+  if (!round) {
+    return null;
+  }
+  return round
+    .split("_")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function travelStopHoverText(projection: TeamTravelProjection, stopIndexes: number[]) {
+  return stopIndexes
+    .map((stopIndex) => {
+      const stop = projection.stops[stopIndex];
+      if (!stop) {
+        return null;
+      }
+      if (stop.kind === "origin") {
+        return `${stopIndex + 1}. Home: ${stop.label}`;
+      }
+      const roundLabel = readableRoundLabel(stop.round);
+      const opponentText = stop.opponentLabel ? ` vs ${stop.opponentLabel}` : "";
+      return `${stopIndex + 1}. ${roundLabel ?? "Game"}: ${stop.label}${opponentText}`;
+    })
+    .filter((entry): entry is string => Boolean(entry))
+    .join(" | ");
+}
+
+type TravelTimelinePoint = {
+  id: string;
+  stopIndexes: number[];
+  positionPercent: number;
+  includesHighlightedGame: boolean;
+};
+
+type TravelTimelineSegment = {
+  id: string;
+  miles: number | null;
+  widthPercent: number;
+  centerPercent: number;
+  includesHighlightedGame: boolean;
+};
+
+function travelMilesThroughGame(projection: TeamTravelProjection, gameId?: string) {
+  const targetStopIndex = gameId
+    ? projection.stops.findIndex((stop) => stop.gameId === gameId)
+    : projection.stops.length - 1;
+  if (targetStopIndex <= 0) {
+    return {
+      knownMiles: 0,
+      miles: 0 as number | null,
+    };
+  }
+
+  let knownMiles = 0;
+  let hasUnknown = false;
+  for (let legIndex = 0; legIndex < targetStopIndex; legIndex += 1) {
+    const miles = projection.legs[legIndex]?.miles ?? null;
+    if (miles === null) {
+      hasUnknown = true;
+      continue;
+    }
+    knownMiles += miles;
+  }
+
+  return {
+    knownMiles: Math.round(knownMiles),
+    miles: hasUnknown ? null : Math.round(knownMiles),
+  };
+}
+
+function buildTravelTimeline(projection: TeamTravelProjection, highlightedGameId?: string) {
+  if (projection.stops.length === 0) {
+    return { points: [] as TravelTimelinePoint[], segments: [] as TravelTimelineSegment[] };
+  }
+
+  function coordKeyForStopIndex(stopIndex: number) {
+    const stop = projection.stops[stopIndex];
+    if (!stop?.coord) {
+      return null;
+    }
+    return `${stop.coord.lat.toFixed(5)},${stop.coord.lng.toFixed(5)}`;
+  }
+
+  const collapsedPoints: Array<{ id: string; stopIndexes: number[] }> = [
+    { id: projection.stops[0].id, stopIndexes: [0] },
+  ];
+  const collapsedSegments: Array<{ id: string; miles: number | null }> = [];
+
+  for (let stopIndex = 1; stopIndex < projection.stops.length; stopIndex += 1) {
+    const previousStopIndex = stopIndex - 1;
+    const sameAsPreviousLocation =
+      coordKeyForStopIndex(previousStopIndex) !== null &&
+      coordKeyForStopIndex(previousStopIndex) === coordKeyForStopIndex(stopIndex);
+
+    if (sameAsPreviousLocation) {
+      collapsedPoints[collapsedPoints.length - 1].stopIndexes.push(stopIndex);
+      continue;
+    }
+
+    collapsedPoints.push({ id: projection.stops[stopIndex].id, stopIndexes: [stopIndex] });
+    const leg = projection.legs[previousStopIndex] ?? null;
+    collapsedSegments.push({
+      id: `${projection.stops[previousStopIndex].id}-${projection.stops[stopIndex].id}`,
+      miles: leg?.miles ?? null,
+    });
+  }
+
+  const knownMiles = collapsedSegments
+    .map((segment) => segment.miles)
+    .filter((miles): miles is number => miles !== null && miles > 0);
+  const knownTotal = knownMiles.reduce((sum, miles) => sum + miles, 0);
+  const fallbackMiles = knownMiles.length > 0 ? knownTotal / knownMiles.length : 1;
+  const weightedSegments = collapsedSegments.map((segment) => ({
+    ...segment,
+    widthWeight: segment.miles !== null && segment.miles > 0 ? segment.miles : fallbackMiles,
+  }));
+  const totalWeight = weightedSegments.reduce((sum, segment) => sum + segment.widthWeight, 0);
+
+  let cumulativeWeight = 0;
+  const points = collapsedPoints.map((point, pointIndex) => {
+    const positionPercent =
+      pointIndex === 0 || totalWeight <= 0 ? 0 : Math.min(100, (cumulativeWeight / totalWeight) * 100);
+    if (pointIndex < weightedSegments.length) {
+      cumulativeWeight += weightedSegments[pointIndex].widthWeight;
+    }
+    const includesHighlightedGame = Boolean(
+      highlightedGameId &&
+        point.stopIndexes.some((stopIndex) => projection.stops[stopIndex]?.gameId === highlightedGameId),
+    );
+    return {
+      ...point,
+      positionPercent,
+      includesHighlightedGame,
+    };
+  });
+
+  let cumulativePercent = 0;
+  const segments = weightedSegments.map((segment, index) => {
+    const widthPercent = totalWeight > 0 ? (segment.widthWeight / totalWeight) * 100 : 0;
+    const startPercent = cumulativePercent;
+    cumulativePercent += widthPercent;
+    const includesHighlightedGame = points[index + 1]?.includesHighlightedGame ?? false;
+    return {
+      id: segment.id,
+      miles: segment.miles !== null ? Math.round(segment.miles) : null,
+      widthPercent,
+      centerPercent: startPercent + widthPercent / 2,
+      includesHighlightedGame,
+    };
+  });
+
+  return { points, segments };
+}
+
+type CompareTravelLineProps = {
+  teamName: string;
+  projection: TeamTravelProjection;
+  highlightedGameId?: string;
+  accentColor: string;
+};
+
+function CompareTravelLine({ teamName, projection, highlightedGameId, accentColor }: CompareTravelLineProps) {
+  const timeline = useMemo(
+    () => buildTravelTimeline(projection, highlightedGameId),
+    [highlightedGameId, projection],
+  );
+  const milesThroughHighlighted = useMemo(
+    () => travelMilesThroughGame(projection, highlightedGameId),
+    [highlightedGameId, projection],
+  );
+  const lineMiles =
+    highlightedGameId !== undefined
+      ? milesThroughHighlighted.miles ?? milesThroughHighlighted.knownMiles
+      : projection.totalMiles ?? projection.knownMilesTotal;
+
+  return (
+    <div className="rounded-md border p-2">
+      <div className="mb-1 flex items-center justify-between gap-2">
+        <p className="text-xs text-muted-foreground">{teamName}</p>
+        <p className="text-xs font-semibold">{milesText(lineMiles)}</p>
+      </div>
+      <div className="relative h-9">
+        <div className="absolute inset-x-0 top-0 h-4">
+          {timeline.segments.map((segment) =>
+            segment.widthPercent >= 9 ? (
+              <span
+                key={`compare-distance-${teamName}-${segment.id}`}
+                className={cn(
+                  "absolute -translate-x-1/2 whitespace-nowrap text-[10px] font-medium",
+                  segment.includesHighlightedGame ? "text-emerald-600 dark:text-emerald-400" : "text-muted-foreground",
+                )}
+                style={{ left: `${segment.centerPercent}%` }}
+              >
+                {milesText(segment.miles)}
+              </span>
+            ) : null,
+          )}
+        </div>
+        <div className="absolute left-0 right-0 top-5 flex h-2 -translate-y-1/2 overflow-hidden rounded-full border bg-muted/30">
+          {timeline.segments.length === 0 ? (
+            <div className="h-2 w-full bg-muted" />
+          ) : (
+            timeline.segments.map((segment, index) => (
+              <div
+                key={`compare-segment-${teamName}-${segment.id}`}
+                className={cn(
+                  "h-2 border-r border-background/60",
+                  !segment.includesHighlightedGame && "bg-white/90",
+                  segment.includesHighlightedGame && "h-3 -mt-0.5 bg-emerald-500 shadow-[0_0_16px_rgba(16,185,129,0.75)]",
+                )}
+                style={{ width: `${segment.widthPercent}%` }}
+              />
+            ))
+          )}
+        </div>
+        {timeline.points.map((point) => (
+          <span
+            key={`compare-dot-${teamName}-${point.id}-${point.stopIndexes[0]}`}
+            className={cn(
+              "absolute top-5 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-background",
+              point.includesHighlightedGame && "h-4 w-4 shadow-[0_0_10px_rgba(16,185,129,0.8)]",
+            )}
+            style={{ left: `${point.positionPercent}%`, backgroundColor: accentColor }}
+            title={travelStopHoverText(projection, point.stopIndexes)}
+          />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 type BettingPanelProps = {
@@ -681,6 +918,7 @@ export function CompareView({
   initialTeamBId,
   bracketGameId,
   season,
+  bracketState,
 }: CompareViewProps) {
   const validInitialTeamAId =
     initialTeamAId && teams.some((team) => team.id === initialTeamAId) ? initialTeamAId : null;
@@ -722,6 +960,32 @@ export function CompareView({
   const teamB = useMemo(
     () => teams.find((team) => team.id === rightTeamId) ?? null,
     [rightTeamId, teams],
+  );
+  const projectedTravelA = useMemo(() => {
+    if (!bracketState || !teamA) {
+      return null;
+    }
+
+    return buildTeamTravelProjection(bracketState, teamA.id, {
+      label: teamA.homeCityState ?? null,
+      lat: teamA.homeLat ?? null,
+      lng: teamA.homeLng ?? null,
+    });
+  }, [bracketState, teamA]);
+  const projectedTravelB = useMemo(() => {
+    if (!bracketState || !teamB) {
+      return null;
+    }
+
+    return buildTeamTravelProjection(bracketState, teamB.id, {
+      label: teamB.homeCityState ?? null,
+      lat: teamB.homeLat ?? null,
+      lng: teamB.homeLng ?? null,
+    });
+  }, [bracketState, teamB]);
+  const missingBracketLocations = useMemo(
+    () => (bracketState ? collectMissingBracketLocationLabels(bracketState) : []),
+    [bracketState],
   );
 
   const metricMap = useMemo(
@@ -1076,6 +1340,62 @@ export function CompareView({
             )}
           </section>
         )
+      ) : null}
+      {bracketState && (projectedTravelA || projectedTravelB) ? (
+        <section className="rounded-lg border p-4">
+          <h4 className="text-base font-semibold">Travel Distance Projection</h4>
+          <p className="mt-1 text-xs text-muted-foreground">
+            Assumes each selected team keeps advancing through its bracket path.
+          </p>
+          <div className="mt-3 space-y-2">
+            {projectedTravelA && teamA ? (
+              <CompareTravelLine
+                teamName={teamA.name}
+                projection={projectedTravelA}
+                highlightedGameId={bracketGameId}
+                accentColor={normalizeTeamColor(teamA.teamColor) ?? "#6B7280"}
+              />
+            ) : null}
+            {projectedTravelB && teamB ? (
+              <CompareTravelLine
+                teamName={teamB.name}
+                projection={projectedTravelB}
+                highlightedGameId={bracketGameId}
+                accentColor={normalizeTeamColor(teamB.teamColor) ?? "#6B7280"}
+              />
+            ) : null}
+            <div className="rounded-md border p-2 text-sm">
+              <p className="text-xs text-muted-foreground">Travel gap to this point</p>
+              <p className="font-semibold">
+                {(() => {
+                  const aThrough = projectedTravelA
+                    ? travelMilesThroughGame(projectedTravelA, bracketGameId)
+                    : null;
+                  const bThrough = projectedTravelB
+                    ? travelMilesThroughGame(projectedTravelB, bracketGameId)
+                    : null;
+                  const a = aThrough ? (aThrough.miles ?? aThrough.knownMiles) : undefined;
+                  const b = bThrough ? (bThrough.miles ?? bThrough.knownMiles) : undefined;
+                  if (a === undefined || b === undefined) {
+                    return "Need both teams to calculate travel gap to this point.";
+                  }
+                  const delta = a - b;
+                  if (delta === 0) {
+                    return `${teamA?.name ?? "Team A"} and ${teamB?.name ?? "Team B"} have traveled the same distance to this point of the tournament.`;
+                  }
+                  const leaderName = delta > 0 ? (teamA?.name ?? "Team A") : (teamB?.name ?? "Team B");
+                  const trailingName = delta > 0 ? (teamB?.name ?? "Team B") : (teamA?.name ?? "Team A");
+                  return `${leaderName} has traveled ${Math.abs(delta).toLocaleString()} more miles than ${trailingName} to this point of the tournament.`;
+                })()}
+              </p>
+            </div>
+          </div>
+          {missingBracketLocations.length > 0 ? (
+            <p className="mt-2 text-xs text-amber-600">
+              Missing site coordinates: {missingBracketLocations.join(", ")}
+            </p>
+          ) : null}
+        </section>
       ) : null}
 
       {!teamA ? (

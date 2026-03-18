@@ -6,6 +6,7 @@ import { PencilIcon } from "lucide-react";
 import { TeamNameWithLogo } from "@/components/teams/team-name-with-logo";
 import { TeamNotes } from "@/components/teams/team-notes";
 import { RatingGauges } from "@/components/teams/rating-gauges";
+import { TeamTravelPanel } from "@/components/teams/team-travel-panel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,11 +19,13 @@ import {
 } from "@/lib/tags";
 import type { TeamNote } from "@/lib/schema/note";
 import type { Team } from "@/lib/schema/team";
+import type { BracketState } from "@/lib/schema/bracket";
 
 type TeamSheetEditorProps = {
   team: Team;
   notes: TeamNote[];
   allTeams: Team[];
+  bracketState: BracketState;
 };
 
 function numberOrNull(value: string) {
@@ -55,11 +58,25 @@ function seedOrUndefined(value: string) {
   return Number.isInteger(parsed) && parsed >= 1 && parsed <= 16 ? parsed : undefined;
 }
 
+function nullableCoordinate(value: string, min: number, max: number) {
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  const parsed = Number(trimmed);
+  if (!Number.isFinite(parsed) || parsed < min || parsed > max) {
+    return null;
+  }
+
+  return parsed;
+}
+
 function displayValue(value: number | null | undefined) {
   return value ?? "-";
 }
 
-export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps) {
+export function TeamSheetEditor({ team, notes, allTeams, bracketState }: TeamSheetEditorProps) {
   const router = useRouter();
 
   const [editing, setEditing] = useState(false);
@@ -68,6 +85,9 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
   const [losses, setLosses] = useState(String(team.record.losses));
   const [seed, setSeed] = useState(team.seed ? String(team.seed) : "");
   const [teamColor, setTeamColor] = useState(team.teamColor ?? "");
+  const [homeCityState, setHomeCityState] = useState(team.homeCityState ?? "");
+  const [homeLat, setHomeLat] = useState(team.homeLat?.toString() ?? "");
+  const [homeLng, setHomeLng] = useState(team.homeLng?.toString() ?? "");
   const [net, setNet] = useState(team.predictiveMetrics.netRanking?.toString() ?? "");
   const [kenpom, setKenpom] = useState(team.predictiveMetrics.kenpomAdjEm?.toString() ?? "");
   const [evanMiya, setEvanMiya] = useState(team.predictiveMetrics.evanMiyaRank?.toString() ?? "");
@@ -123,6 +143,9 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
       tags: parsedTags,
       seed: seedOrUndefined(seed),
       teamColor: normalizeTeamColor(teamColor),
+      homeCityState: homeCityState.trim() ? homeCityState.trim() : null,
+      homeLat: nullableCoordinate(homeLat, -90, 90),
+      homeLng: nullableCoordinate(homeLng, -180, 180),
     };
   }, [
     conference,
@@ -143,6 +166,9 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
     q4Wins,
     seed,
     teamColor,
+    homeCityState,
+    homeLat,
+    homeLng,
     team,
     parsedTags,
     torvik,
@@ -156,6 +182,9 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
     setLosses(String(team.record.losses));
     setSeed(team.seed ? String(team.seed) : "");
     setTeamColor(team.teamColor ?? "");
+    setHomeCityState(team.homeCityState ?? "");
+    setHomeLat(team.homeLat?.toString() ?? "");
+    setHomeLng(team.homeLng?.toString() ?? "");
     setNet(team.predictiveMetrics.netRanking?.toString() ?? "");
     setKenpom(team.predictiveMetrics.kenpomAdjEm?.toString() ?? "");
     setEvanMiya(team.predictiveMetrics.evanMiyaRank?.toString() ?? "");
@@ -194,6 +223,22 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
     }
     if (teamColor.trim().length > 0 && !normalizeTeamColor(teamColor)) {
       setStatus("Team color must be a 6-digit hex code like #1D4ED8");
+      return;
+    }
+    if (homeCityState.trim().length > 0) {
+      const lat = nullableCoordinate(homeLat, -90, 90);
+      const lng = nullableCoordinate(homeLng, -180, 180);
+      if (lat === null || lng === null) {
+        setStatus("Home latitude/longitude must be valid numbers when home city is set.");
+        return;
+      }
+    }
+    if (homeLat.trim().length > 0 && nullableCoordinate(homeLat, -90, 90) === null) {
+      setStatus("Home latitude must be a number between -90 and 90.");
+      return;
+    }
+    if (homeLng.trim().length > 0 && nullableCoordinate(homeLng, -180, 180) === null) {
+      setStatus("Home longitude must be a number between -180 and 180.");
       return;
     }
 
@@ -240,6 +285,11 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
             <h4 className="text-lg font-medium text-muted-foreground md:text-xl">
               <span className="font-bold">{conference}</span> • <span className="font-bold">{wins}-{losses}</span>
             </h4>
+            {!editing && homeCityState.trim() ? (
+              <p className="text-sm text-muted-foreground">
+                Home Base: <span className="font-medium text-foreground">{homeCityState.trim()}</span>
+              </p>
+            ) : null}
           </div>
           <div className="flex flex-wrap gap-2">
             {parsedTags.map((tag) => (
@@ -294,6 +344,33 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
                   <Input id="losses" value={losses} onChange={(event) => setLosses(event.target.value)} />
                 </div>
                 <div className="space-y-2 md:col-span-2">
+                  <Label htmlFor="homeCityState">Home City/State</Label>
+                  <Input
+                    id="homeCityState"
+                    value={homeCityState}
+                    onChange={(event) => setHomeCityState(event.target.value)}
+                    placeholder="Durham, NC"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="homeLat">Home Latitude</Label>
+                  <Input
+                    id="homeLat"
+                    value={homeLat}
+                    onChange={(event) => setHomeLat(event.target.value)}
+                    placeholder="35.9940"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="homeLng">Home Longitude</Label>
+                  <Input
+                    id="homeLng"
+                    value={homeLng}
+                    onChange={(event) => setHomeLng(event.target.value)}
+                    placeholder="-78.8986"
+                  />
+                </div>
+                <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="tags">Tags (comma separated)</Label>
                   <Input
                     id="tags"
@@ -326,6 +403,7 @@ export function TeamSheetEditor({ team, notes, allTeams }: TeamSheetEditorProps)
         </div>
 
         <RatingGauges team={team} teams={allTeams} />
+        <TeamTravelPanel team={team} bracketState={bracketState} allTeams={allTeams} />
       </div>
 
       <div className="space-y-3">

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { TeamSheetEditor } from "@/components/teams/team-sheet-editor";
 import { Button } from "@/components/ui/button";
 import { teamRepo } from "@/lib/data/team-repo";
+import { loadBracketState } from "@/lib/data/bracket-repo";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -15,10 +16,11 @@ type TeamPageProps = {
 
 export default async function TeamPage({ params }: TeamPageProps) {
   const { teamId } = await params;
-  const [team, notes, allTeams] = await Promise.all([
+  const [team, notes, allTeams, bracketState] = await Promise.all([
     teamRepo.getTeam(teamId),
     teamRepo.listNotes(teamId),
     teamRepo.listTeams(),
+    loadBracketState(),
   ]);
 
   if (!team) {
@@ -39,7 +41,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
         ) : null}
       </div>
 
-      <TeamSheetEditor team={team} notes={notes} allTeams={allTeams} />
+      <TeamSheetEditor team={team} notes={notes} allTeams={allTeams} bracketState={bracketState} />
     </div>
   );
 }
