@@ -82,7 +82,13 @@ export function TeamTravelPanel({ team, bracketState, allTeams = [] }: TeamTrave
     if (projection.stops.length === 0) {
       return {
         points: [] as Array<{ id: string; stopIndexes: number[]; positionPercent: number; label: string }>,
-        segments: [] as Array<{ id: string; miles: number | null; widthPercent: number; label: string }>,
+        segments: [] as Array<{
+          id: string;
+          miles: number | null;
+          widthPercent: number;
+          centerPercent: number;
+          label: string;
+        }>,
       };
     }
 
