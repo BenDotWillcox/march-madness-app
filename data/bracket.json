@@ -862,11 +862,11 @@
       },
       "away": {
         "seed": 16,
-        "teamId": null,
-        "sourceLabel": "(16) SOUTH TBD"
+        "teamId": "prairie-view",
+        "sourceLabel": "(16) Prairie View"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "florida",
+      "winnerSourceLabel": "(1) Florida",
       "nextGameId": "south-r32-1",
       "nextSlot": "home",
       "gameInfo": {
