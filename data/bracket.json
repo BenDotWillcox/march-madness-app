@@ -65,8 +65,8 @@
         "teamId": "lehigh",
         "sourceLabel": "(16) Lehigh"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "prairie-view",
+      "winnerSourceLabel": "(16) Prairie View",
       "nextGameId": "south-r64-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -90,8 +90,8 @@
         "teamId": "smu",
         "sourceLabel": "(11) SMU"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "miami-oh",
+      "winnerSourceLabel": "(11) Miami (OH)",
       "nextGameId": "midwest-r64-5",
       "nextSlot": "away",
       "gameInfo": {
@@ -115,8 +115,8 @@
         "teamId": "siena",
         "sourceLabel": "(16) Siena"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "duke",
+      "winnerSourceLabel": "(1) Duke",
       "nextGameId": "east-r32-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -140,8 +140,8 @@
         "teamId": "tcu",
         "sourceLabel": "(9) TCU"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "tcu",
+      "winnerSourceLabel": "(9) TCU",
       "nextGameId": "east-r32-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -165,8 +165,8 @@
         "teamId": "northern-iowa",
         "sourceLabel": "(12) Northern Iowa"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "st-johns-ny",
+      "winnerSourceLabel": "(5) St. John's",
       "nextGameId": "east-r32-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -190,8 +190,8 @@
         "teamId": "california-baptist",
         "sourceLabel": "(13) Cal Baptist"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "kansas",
+      "winnerSourceLabel": "(4) Kansas",
       "nextGameId": "east-r32-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -215,8 +215,8 @@
         "teamId": "south-fla",
         "sourceLabel": "(11) South Florida"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "louisville",
+      "winnerSourceLabel": "(6) Louisville",
       "nextGameId": "east-r32-3",
       "nextSlot": "home",
       "gameInfo": {
@@ -240,8 +240,8 @@
         "teamId": "north-dakota-st",
         "sourceLabel": "(14) North Dakota St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan-st",
+      "winnerSourceLabel": "(3) Michigan St.",
       "nextGameId": "east-r32-3",
       "nextSlot": "away",
       "gameInfo": {
@@ -265,8 +265,8 @@
         "teamId": "ucf",
         "sourceLabel": "(10) UCF"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "ucla",
+      "winnerSourceLabel": "(7) UCLA",
       "nextGameId": "east-r32-4",
       "nextSlot": "home",
       "gameInfo": {
@@ -290,8 +290,8 @@
         "teamId": "furman",
         "sourceLabel": "(15) Furman"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "uconn",
+      "winnerSourceLabel": "(2) UConn",
       "nextGameId": "east-r32-4",
       "nextSlot": "away",
       "gameInfo": {
@@ -306,17 +306,17 @@
       "round": "round_of_32",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-1"
+        "seed": 1,
+        "teamId": "duke",
+        "sourceLabel": "(1) Duke"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-2"
+        "seed": 9,
+        "teamId": "tcu",
+        "sourceLabel": "(9) TCU"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "duke",
+      "winnerSourceLabel": "(1) Duke",
       "nextGameId": "east-s16-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -331,17 +331,17 @@
       "round": "round_of_32",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-3"
+        "seed": 5,
+        "teamId": "st-johns-ny",
+        "sourceLabel": "(5) St. John's"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-4"
+        "seed": 4,
+        "teamId": "kansas",
+        "sourceLabel": "(4) Kansas"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "st-johns-ny",
+      "winnerSourceLabel": "(5) St. John's",
       "nextGameId": "east-s16-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -356,17 +356,17 @@
       "round": "round_of_32",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-5"
+        "seed": 6,
+        "teamId": "louisville",
+        "sourceLabel": "(6) Louisville"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-6"
+        "seed": 3,
+        "teamId": "michigan-st",
+        "sourceLabel": "(3) Michigan St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan-st",
+      "winnerSourceLabel": "(3) Michigan St.",
       "nextGameId": "east-s16-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -381,17 +381,17 @@
       "round": "round_of_32",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-7"
+        "seed": 7,
+        "teamId": "ucla",
+        "sourceLabel": "(7) UCLA"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r64-8"
+        "seed": 2,
+        "teamId": "uconn",
+        "sourceLabel": "(2) UConn"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "uconn",
+      "winnerSourceLabel": "(2) UConn",
       "nextGameId": "east-s16-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -406,21 +406,21 @@
       "round": "sweet_16",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r32-1"
+        "seed": 1,
+        "teamId": "duke",
+        "sourceLabel": "(1) Duke"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r32-2"
+        "seed": 5,
+        "teamId": "st-johns-ny",
+        "sourceLabel": "(5) St. John's"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "east-e8-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-27T18:10:00-05:00",
         "location": "Washington, DC",
         "spread": null,
         "total": null
@@ -431,21 +431,21 @@
       "round": "sweet_16",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r32-3"
+        "seed": 3,
+        "teamId": "michigan-st",
+        "sourceLabel": "(3) Michigan St."
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-r32-4"
+        "seed": 2,
+        "teamId": "uconn",
+        "sourceLabel": "(2) UConn"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "east-e8-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-27T20:45:00-05:00",
         "location": "Washington, DC",
         "spread": null,
         "total": null
@@ -490,8 +490,8 @@
         "teamId": "liu",
         "sourceLabel": "(16) LIU"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arizona",
+      "winnerSourceLabel": "(1) Arizona",
       "nextGameId": "west-r32-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -515,8 +515,8 @@
         "teamId": "utah-st",
         "sourceLabel": "(9) Utah St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "utah-st",
+      "winnerSourceLabel": "(9) Utah St.",
       "nextGameId": "west-r32-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -540,8 +540,8 @@
         "teamId": "high-point",
         "sourceLabel": "(12) High Point"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "high-point",
+      "winnerSourceLabel": "(12) High Point",
       "nextGameId": "west-r32-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -565,8 +565,8 @@
         "teamId": "hawaii",
         "sourceLabel": "(13) Hawaii"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arkansas",
+      "winnerSourceLabel": "(4) Arkansas",
       "nextGameId": "west-r32-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -590,8 +590,8 @@
         "teamId": "texas",
         "sourceLabel": "(11) Texas"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "texas",
+      "winnerSourceLabel": "(11) Texas",
       "nextGameId": "west-r32-3",
       "nextSlot": "home",
       "gameInfo": {
@@ -615,8 +615,8 @@
         "teamId": "kennesaw-st",
         "sourceLabel": "(14) Kennesaw St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "gonzaga",
+      "winnerSourceLabel": "(3) Gonzaga",
       "nextGameId": "west-r32-3",
       "nextSlot": "away",
       "gameInfo": {
@@ -640,8 +640,8 @@
         "teamId": "missouri",
         "sourceLabel": "(10) Missouri"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "miami-fl",
+      "winnerSourceLabel": "(7) Miami (FL)",
       "nextGameId": "west-r32-4",
       "nextSlot": "home",
       "gameInfo": {
@@ -665,8 +665,8 @@
         "teamId": "queens",
         "sourceLabel": "(15) Queens"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "purdue",
+      "winnerSourceLabel": "(2) Purdue",
       "nextGameId": "west-r32-4",
       "nextSlot": "away",
       "gameInfo": {
@@ -681,17 +681,17 @@
       "round": "round_of_32",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-1"
+        "seed": 1,
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-2"
+        "seed": 9,
+        "teamId": "utah-st",
+        "sourceLabel": "(9) Utah St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arizona",
+      "winnerSourceLabel": "(1) Arizona",
       "nextGameId": "west-s16-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -706,17 +706,17 @@
       "round": "round_of_32",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-3"
+        "seed": 12,
+        "teamId": "high-point",
+        "sourceLabel": "(12) High Point"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-4"
+        "seed": 4,
+        "teamId": "arkansas",
+        "sourceLabel": "(4) Arkansas"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arkansas",
+      "winnerSourceLabel": "(4) Arkansas",
       "nextGameId": "west-s16-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -731,17 +731,17 @@
       "round": "round_of_32",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-5"
+        "seed": 11,
+        "teamId": "texas",
+        "sourceLabel": "(11) Texas"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-6"
+        "seed": 3,
+        "teamId": "gonzaga",
+        "sourceLabel": "(3) Gonzaga"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "texas",
+      "winnerSourceLabel": "(11) Texas",
       "nextGameId": "west-s16-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -756,17 +756,17 @@
       "round": "round_of_32",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-7"
+        "seed": 7,
+        "teamId": "miami-fl",
+        "sourceLabel": "(7) Miami (FL)"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r64-8"
+        "seed": 2,
+        "teamId": "purdue",
+        "sourceLabel": "(2) Purdue"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "purdue",
+      "winnerSourceLabel": "(2) Purdue",
       "nextGameId": "west-s16-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -781,21 +781,21 @@
       "round": "sweet_16",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r32-1"
+        "seed": 1,
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r32-2"
+        "seed": 4,
+        "teamId": "arkansas",
+        "sourceLabel": "(4) Arkansas"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "west-e8-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-26T20:45:00-05:00",
         "location": "San Jose, CA",
         "spread": null,
         "total": null
@@ -806,21 +806,21 @@
       "round": "sweet_16",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r32-3"
+        "seed": 11,
+        "teamId": "texas",
+        "sourceLabel": "(11) Texas"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-r32-4"
+        "seed": 2,
+        "teamId": "purdue",
+        "sourceLabel": "(2) Purdue"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "west-e8-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-26T18:10:00-05:00",
         "location": "San Jose, CA",
         "spread": null,
         "total": null
@@ -890,8 +890,8 @@
         "teamId": "iowa",
         "sourceLabel": "(9) Iowa"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "iowa",
+      "winnerSourceLabel": "(9) Iowa",
       "nextGameId": "south-r32-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -915,8 +915,8 @@
         "teamId": "mcneese-st",
         "sourceLabel": "(12) McNeese St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "vanderbilt",
+      "winnerSourceLabel": "(5) Vanderbilt",
       "nextGameId": "south-r32-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -940,8 +940,8 @@
         "teamId": "troy",
         "sourceLabel": "(13) Troy"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "nebraska",
+      "winnerSourceLabel": "(4) Nebraska",
       "nextGameId": "south-r32-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -965,8 +965,8 @@
         "teamId": "vcu",
         "sourceLabel": "(11) VCU"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "vcu",
+      "winnerSourceLabel": "(11) VCU",
       "nextGameId": "south-r32-3",
       "nextSlot": "home",
       "gameInfo": {
@@ -990,8 +990,8 @@
         "teamId": "penn",
         "sourceLabel": "(14) Penn"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "illinois",
+      "winnerSourceLabel": "(3) Illinois",
       "nextGameId": "south-r32-3",
       "nextSlot": "away",
       "gameInfo": {
@@ -1015,8 +1015,8 @@
         "teamId": "texas-am",
         "sourceLabel": "(10) Texas A&M"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "texas-am",
+      "winnerSourceLabel": "(10) Texas A&M",
       "nextGameId": "south-r32-4",
       "nextSlot": "home",
       "gameInfo": {
@@ -1040,8 +1040,8 @@
         "teamId": "idaho",
         "sourceLabel": "(15) Idaho"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "houston",
+      "winnerSourceLabel": "(2) Houston",
       "nextGameId": "south-r32-4",
       "nextSlot": "away",
       "gameInfo": {
@@ -1056,17 +1056,17 @@
       "round": "round_of_32",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-1"
+        "seed": 1,
+        "teamId": "florida",
+        "sourceLabel": "(1) Florida"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-2"
+        "seed": 9,
+        "teamId": "iowa",
+        "sourceLabel": "(9) Iowa"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "iowa",
+      "winnerSourceLabel": "(9) Iowa",
       "nextGameId": "south-s16-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -1081,17 +1081,17 @@
       "round": "round_of_32",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-3"
+        "seed": 5,
+        "teamId": "vanderbilt",
+        "sourceLabel": "(5) Vanderbilt"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-4"
+        "seed": 4,
+        "teamId": "nebraska",
+        "sourceLabel": "(4) Nebraska"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "nebraska",
+      "winnerSourceLabel": "(4) Nebraska",
       "nextGameId": "south-s16-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1106,17 +1106,17 @@
       "round": "round_of_32",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-5"
+        "seed": 11,
+        "teamId": "vcu",
+        "sourceLabel": "(11) VCU"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-6"
+        "seed": 3,
+        "teamId": "illinois",
+        "sourceLabel": "(3) Illinois"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "illinois",
+      "winnerSourceLabel": "(3) Illinois",
       "nextGameId": "south-s16-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -1131,17 +1131,17 @@
       "round": "round_of_32",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-7"
+        "seed": 10,
+        "teamId": "texas-am",
+        "sourceLabel": "(10) Texas A&M"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r64-8"
+        "seed": 2,
+        "teamId": "houston",
+        "sourceLabel": "(2) Houston"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "houston",
+      "winnerSourceLabel": "(2) Houston",
       "nextGameId": "south-s16-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -1156,21 +1156,21 @@
       "round": "sweet_16",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r32-1"
+        "seed": 9,
+        "teamId": "iowa",
+        "sourceLabel": "(9) Iowa"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r32-2"
+        "seed": 4,
+        "teamId": "nebraska",
+        "sourceLabel": "(4) Nebraska"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "south-e8-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-26T18:30:00-05:00",
         "location": "Houston, TX",
         "spread": null,
         "total": null
@@ -1181,21 +1181,21 @@
       "round": "sweet_16",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r32-3"
+        "seed": 3,
+        "teamId": "illinois",
+        "sourceLabel": "(3) Illinois"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-r32-4"
+        "seed": 2,
+        "teamId": "houston",
+        "sourceLabel": "(2) Houston"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "south-e8-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-26T21:05:00-05:00",
         "location": "Houston, TX",
         "spread": null,
         "total": null
@@ -1240,8 +1240,8 @@
         "teamId": "howard",
         "sourceLabel": "(16) Howard"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan",
+      "winnerSourceLabel": "(1) Michigan",
       "nextGameId": "midwest-r32-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -1265,8 +1265,8 @@
         "teamId": "saint-louis",
         "sourceLabel": "(9) Saint Louis"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "saint-louis",
+      "winnerSourceLabel": "(9) Saint Louis",
       "nextGameId": "midwest-r32-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1290,8 +1290,8 @@
         "teamId": "akron",
         "sourceLabel": "(12) Akron"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "texas-tech",
+      "winnerSourceLabel": "(5) Texas Tech",
       "nextGameId": "midwest-r32-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -1315,8 +1315,8 @@
         "teamId": "hofstra",
         "sourceLabel": "(13) Hofstra"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "alabama",
+      "winnerSourceLabel": "(4) Alabama",
       "nextGameId": "midwest-r32-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -1337,11 +1337,11 @@
       },
       "away": {
         "seed": 11,
-        "teamId": null,
-        "sourceLabel": "(11) MIDWEST TBD"
+        "teamId": "miami-oh",
+        "sourceLabel": "(11) Miami OH"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "tennessee",
+      "winnerSourceLabel": "(6) Tennessee",
       "nextGameId": "midwest-r32-3",
       "nextSlot": "home",
       "gameInfo": {
@@ -1365,8 +1365,8 @@
         "teamId": "wright-st",
         "sourceLabel": "(14) Wright State"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "virginia",
+      "winnerSourceLabel": "(3) Virginia",
       "nextGameId": "midwest-r32-3",
       "nextSlot": "away",
       "gameInfo": {
@@ -1390,8 +1390,8 @@
         "teamId": "santa-clara",
         "sourceLabel": "(10) Santa Clara"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "kentucky",
+      "winnerSourceLabel": "(7) Kentucky",
       "nextGameId": "midwest-r32-4",
       "nextSlot": "home",
       "gameInfo": {
@@ -1415,8 +1415,8 @@
         "teamId": "tennessee-st",
         "sourceLabel": "(15) Tennessee St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "iowa-st",
+      "winnerSourceLabel": "(2) Iowa St.",
       "nextGameId": "midwest-r32-4",
       "nextSlot": "away",
       "gameInfo": {
@@ -1431,17 +1431,17 @@
       "round": "round_of_32",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-1"
+        "seed": 1,
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-2"
+        "seed": 9,
+        "teamId": "saint-louis",
+        "sourceLabel": "(9) Saint Louis"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan",
+      "winnerSourceLabel": "(1) Michigan",
       "nextGameId": "midwest-s16-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -1456,17 +1456,17 @@
       "round": "round_of_32",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-3"
+        "seed": 5,
+        "teamId": "texas-tech",
+        "sourceLabel": "(5) Texas Tech"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-4"
+        "seed": 4,
+        "teamId": "alabama",
+        "sourceLabel": "(4) Alabama"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "alabama",
+      "winnerSourceLabel": "(4) Alabama",
       "nextGameId": "midwest-s16-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1481,17 +1481,17 @@
       "round": "round_of_32",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-5"
+        "seed": 6,
+        "teamId": "tennessee",
+        "sourceLabel": "(6) Tennessee"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-6"
+        "seed": 3,
+        "teamId": "virginia",
+        "sourceLabel": "(3) Virginia"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "tennessee",
+      "winnerSourceLabel": "(6) Tennessee",
       "nextGameId": "midwest-s16-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -1506,17 +1506,17 @@
       "round": "round_of_32",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-7"
+        "seed": 7,
+        "teamId": "kentucky",
+        "sourceLabel": "(7) Kentucky"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r64-8"
+        "seed": 2,
+        "teamId": "iowa-st",
+        "sourceLabel": "(2) Iowa St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "iowa-st",
+      "winnerSourceLabel": "(2) Iowa St.",
       "nextGameId": "midwest-s16-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -1531,21 +1531,21 @@
       "round": "sweet_16",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r32-1"
+        "seed": 1,
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r32-2"
+        "seed": 4,
+        "teamId": "alabama",
+        "sourceLabel": "(4) Alabama"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "midwest-e8-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-27T18:35:00-05:00",
         "location": "Chicago, IL",
         "spread": null,
         "total": null
@@ -1556,21 +1556,21 @@
       "round": "sweet_16",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r32-3"
+        "seed": 6,
+        "teamId": "tennessee",
+        "sourceLabel": "(6) Tennessee"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-r32-4"
+        "seed": 2,
+        "teamId": "iowa-st",
+        "sourceLabel": "(2) Iowa St."
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "midwest-e8-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-27T21:10:00-05:00",
         "location": "Chicago, IL",
         "spread": null,
         "total": null
