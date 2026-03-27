@@ -790,8 +790,8 @@
         "teamId": "arkansas",
         "sourceLabel": "(4) Arkansas"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arizona",
+      "winnerSourceLabel": "(1) Arizona",
       "nextGameId": "west-e8-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -815,8 +815,8 @@
         "teamId": "purdue",
         "sourceLabel": "(2) Purdue"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "purdue",
+      "winnerSourceLabel": "(2) Purdue",
       "nextGameId": "west-e8-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -831,14 +831,14 @@
       "round": "elite_8",
       "region": "west",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-s16-1"
+        "seed": 1,
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-s16-2"
+        "seed": 2,
+        "teamId": "purdue",
+        "sourceLabel": "(2) Purdue"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
@@ -1165,8 +1165,8 @@
         "teamId": "nebraska",
         "sourceLabel": "(4) Nebraska"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "iowa",
+      "winnerSourceLabel": "(9) Iowa",
       "nextGameId": "south-e8-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -1190,8 +1190,8 @@
         "teamId": "houston",
         "sourceLabel": "(2) Houston"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "illinois",
+      "winnerSourceLabel": "(3) Illinois",
       "nextGameId": "south-e8-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1206,14 +1206,15 @@
       "round": "elite_8",
       "region": "south",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-s16-1"
+        "seed": 9,
+        "teamId": "iowa",
+        "sourceLabel": "(9) Iowa"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-s16-2"
+        "seed": 3,
+        "teamId": "illinois",
+        "sourceLabel": "(3) Illinois"
+
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
