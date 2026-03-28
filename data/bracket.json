@@ -415,8 +415,8 @@
         "teamId": "st-johns-ny",
         "sourceLabel": "(5) St. John's"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "duke",
+      "winnerSourceLabel": "(1) Duke",
       "nextGameId": "east-e8-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -440,8 +440,8 @@
         "teamId": "uconn",
         "sourceLabel": "(2) UConn"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "uconn",
+      "winnerSourceLabel": "(2) UConn",
       "nextGameId": "east-e8-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -456,21 +456,21 @@
       "round": "elite_8",
       "region": "east",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-s16-1"
+        "seed": 1,
+        "teamId": "duke",
+        "sourceLabel": "(1) Duke"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-s16-2"
+        "seed": 2,
+        "teamId": "uconn",
+        "sourceLabel": "(2) UConn"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "final-four-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-29T16:05:00-05:00",
         "location": "Washington, DC",
         "spread": null,
         "total": null
@@ -845,7 +845,7 @@
       "nextGameId": "final-four-2",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-28T19:49:00-05:00",
         "location": "San Jose, CA",
         "spread": null,
         "total": null
@@ -1221,7 +1221,7 @@
       "nextGameId": "final-four-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-28T17:09:00-05:00",
         "location": "Houston, TX",
         "spread": null,
         "total": null
@@ -1541,8 +1541,8 @@
         "teamId": "alabama",
         "sourceLabel": "(4) Alabama"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan",
+      "winnerSourceLabel": "(1) Michigan",
       "nextGameId": "midwest-e8-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -1566,8 +1566,8 @@
         "teamId": "iowa-st",
         "sourceLabel": "(2) Iowa St."
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "tennessee",
+      "winnerSourceLabel": "(6) Tennessee",
       "nextGameId": "midwest-e8-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1582,21 +1582,21 @@
       "round": "elite_8",
       "region": "midwest",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-s16-1"
+        "seed": 1,
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-s16-2"
+        "seed": 6,
+        "teamId": "tennessee",
+        "sourceLabel": "(6) Tennessee"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "final-four-2",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-03-29T13:15:00-05:00",
         "location": "Chicago, IL",
         "spread": null,
         "total": null
