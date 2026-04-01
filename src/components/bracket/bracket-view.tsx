@@ -1,11 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
+import { RotateCcwIcon, ListRestartIcon } from "lucide-react";
 import { BracketCompareOverlay } from "@/components/bracket/bracket-compare-overlay";
 import { BracketGameCard } from "@/components/bracket/bracket-game-card";
 import { BracketMobileList } from "@/components/bracket/bracket-mobile-list";
 import { BracketRegionColumn } from "@/components/bracket/bracket-region-column";
 import { TeamNameWithLogo } from "@/components/teams/team-name-with-logo";
+import { Button } from "@/components/ui/button";
 import { applyWinnerSelection, type BracketSlotKey } from "@/lib/bracket/engine";
 import type { BracketGame, BracketRound, BracketState } from "@/lib/schema/bracket";
 import type { Team } from "@/lib/schema/team";
@@ -23,7 +25,33 @@ type BracketViewState = {
 type BracketViewAction =
   | { type: "pick-winner"; gameId: string; slot: BracketSlotKey }
   | { type: "open-compare"; gameId: string }
-  | { type: "close-compare" };
+  | { type: "close-compare" }
+  | { type: "reset"; initialState: BracketState }
+  | { type: "restore"; initialState: BracketState };
+
+function resetBracket(source: BracketState): BracketState {
+  const games = source.games.map((g) => ({
+    ...g,
+    home: { ...g.home },
+    away: { ...g.away },
+    winnerTeamId: null,
+    winnerSourceLabel: null,
+    gameInfo: g.gameInfo ? { ...g.gameInfo } : undefined,
+  }));
+
+  const gamesById = new Map(games.map((g) => [g.id, g]));
+
+  for (const game of games) {
+    if (game.nextGameId && game.nextSlot) {
+      const next = gamesById.get(game.nextGameId);
+      if (next) {
+        next[game.nextSlot] = { seed: null, teamId: null, sourceLabel: `Winner of ${game.id}` };
+      }
+    }
+  }
+
+  return { ...source, games, updatedAt: new Date().toISOString() };
+}
 
 function bracketViewReducer(state: BracketViewState, action: BracketViewAction): BracketViewState {
   if (action.type === "pick-winner") {
@@ -38,6 +66,14 @@ function bracketViewReducer(state: BracketViewState, action: BracketViewAction):
       ...state,
       compareGameId: action.gameId,
     };
+  }
+
+  if (action.type === "reset") {
+    return { ...state, bracket: resetBracket(action.initialState), compareGameId: null };
+  }
+
+  if (action.type === "restore") {
+    return { ...state, bracket: action.initialState, compareGameId: null };
   }
 
   return {
@@ -188,13 +224,33 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
 
   return (
     <div className="space-y-4">
-      <div className="space-y-1">
-        <h3 className="text-lg font-semibold">Tournament Bracket</h3>
-        <p className="text-sm text-muted-foreground">
-          {isMobile
-            ? "Tap a team to advance. Tap the card to compare when both teams are set."
-            : "Click a team to advance (or click again to clear). Compare opens over bracket when both teams are set."}
-        </p>
+      <div className="flex items-start justify-between gap-4">
+        <div className="space-y-1">
+          <h3 className="text-lg font-semibold">Tournament Bracket</h3>
+          <p className="text-sm text-muted-foreground">
+            {isMobile
+              ? "Tap a team to advance. Tap the card to compare when both teams are set."
+              : "Click a team to advance (or click again to clear). Compare opens over bracket when both teams are set."}
+          </p>
+        </div>
+        <div className="flex shrink-0 items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => dispatch({ type: "restore", initialState })}
+          >
+            <ListRestartIcon />
+            Show Current
+          </Button>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => dispatch({ type: "reset", initialState })}
+          >
+            <RotateCcwIcon />
+            Reset
+          </Button>
+        </div>
       </div>
 
       <div ref={wrapperRef} className="pb-2">
