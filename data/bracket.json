@@ -1633,13 +1633,13 @@
       "region": "national",
       "home": {
         "seed": 1,
-        "teamId": "michigan",
-        "sourceLabel": "(1) Michigan"
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
       },
       "away": {
         "seed": 1,
-        "teamId": "arizona",
-        "sourceLabel": "(1) Arizona"
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
