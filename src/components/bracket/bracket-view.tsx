@@ -161,7 +161,7 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
     const naturalHeight = content.scrollHeight;
     const s = Math.min(1, containerWidth / naturalWidth);
     setBracketScale(s);
-    setScaledHeight(s < 1 ? Math.ceil(naturalHeight * s) : undefined);
+    setScaledHeight(s < 1 ? Math.ceil(naturalHeight * s) + 2 : undefined);
   }, [containerWidth, isMobile]);
 
   useEffect(() => {
@@ -212,7 +212,7 @@ export function BracketView({ initialState, teams }: BracketViewProps) {
           >
             <div
               ref={contentRef}
-              className="w-max space-y-8 rounded-xl bg-muted/20 p-3"
+              className="mx-auto w-max space-y-8 rounded-xl bg-muted/20 p-3"
               style={{
                 transform: bracketScale < 1 ? `scale(${bracketScale})` : undefined,
                 transformOrigin: "top left",

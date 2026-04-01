@@ -465,8 +465,8 @@
         "teamId": "uconn",
         "sourceLabel": "(2) UConn"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "uconn",
+      "winnerSourceLabel": "(2) UConn",
       "nextGameId": "final-four-1",
       "nextSlot": "home",
       "gameInfo": {
@@ -840,8 +840,8 @@
         "teamId": "purdue",
         "sourceLabel": "(2) Purdue"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "arizona",
+      "winnerSourceLabel": "(1) Arizona",
       "nextGameId": "final-four-2",
       "nextSlot": "away",
       "gameInfo": {
@@ -1216,8 +1216,8 @@
         "sourceLabel": "(3) Illinois"
 
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "illinois",
+      "winnerSourceLabel": "(3) Illinois",
       "nextGameId": "final-four-1",
       "nextSlot": "away",
       "gameInfo": {
@@ -1591,8 +1591,8 @@
         "teamId": "tennessee",
         "sourceLabel": "(6) Tennessee"
       },
-      "winnerTeamId": null,
-      "winnerSourceLabel": null,
+      "winnerTeamId": "michigan",
+      "winnerSourceLabel": "(1) Michigan",
       "nextGameId": "final-four-2",
       "nextSlot": "home",
       "gameInfo": {
@@ -1607,21 +1607,21 @@
       "round": "final_4",
       "region": "national",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of east-e8-1"
+        "seed": 2,
+        "teamId": "uconn",
+        "sourceLabel": "(2) UConn"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of south-e8-1"
+        "seed": 3,
+        "teamId": "illinois",
+        "sourceLabel": "(3) Illinois"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "championship-1",
       "nextSlot": "home",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-04-05T17:09:00-05:00",
         "location": "Indianapolis, IN",
         "spread": null,
         "total": null
@@ -1632,21 +1632,21 @@
       "round": "final_4",
       "region": "national",
       "home": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of midwest-e8-1"
+        "seed": 1,
+        "teamId": "michigan",
+        "sourceLabel": "(1) Michigan"
       },
       "away": {
-        "seed": null,
-        "teamId": null,
-        "sourceLabel": "Winner of west-e8-1"
+        "seed": 1,
+        "teamId": "arizona",
+        "sourceLabel": "(1) Arizona"
       },
       "winnerTeamId": null,
       "winnerSourceLabel": null,
       "nextGameId": "championship-1",
       "nextSlot": "away",
       "gameInfo": {
-        "tipoff": null,
+        "tipoff": "2026-04-04T19:49:00-05:00",
         "location": "Indianapolis, IN",
         "spread": null,
         "total": null
